@@ -1,24 +1,72 @@
-# README
+# テーブル設定
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| nickname     | string | null: false |
+| email    | string | null: false,unique: true |
+| password | string | null: false |
+| birthday | date   | null: false |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :celebs, through: rooms
+- has_many :rooms
+- has_many :message_users
 
-* Database creation
+## celebs テーブル
 
-* Database initialization
+| Column      | Type   | Options     |
+| ------      | ------ | ----------- |
+| name        | string | null: false |
+| email       | string | null: false |
+| password    | string | null: false |
+| description | string | null: false |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :users, through: rooms
+- has_many :rooms
+- has_many :message_celebs
 
-* Deployment instructions
+## rooms テーブル
 
-* ...
+| Column   | Type       | Options                        |
+| ------   | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| celebs   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :celeb
+- has_many :message_celebs
+- has_many :message_users
+
+## message_users テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
+
+## message_celebs テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | text       | null:false                     |
+| celeb   | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :celeb
+- belongs_to :message
