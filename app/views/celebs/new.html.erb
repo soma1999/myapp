@@ -1,0 +1,15 @@
+<%= form_with model: @celeb, url: celebs_path, local: true do |f|%>
+  <%= f.label :name, '名前'%>
+  <%= f.text_field :name %>
+  
+  <%= f.label :emal, 'メールアドレス'%>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, 'パスワード'%>
+  <%= f.password_field :password_digest %>
+
+  <%= f.label :description, '説明'%>
+  <%= f.text_area :description %>
+
+  <%= f.submit '登録'%>
+<% end %>
