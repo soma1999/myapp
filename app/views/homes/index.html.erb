@@ -6,4 +6,10 @@
   <div class= 'famous_index'>
     有名人一覧
   </div>
+
+  <div class= 'admin'>
+    <% if user_signed_in? && current_user.admin?  %>
+      <%= link_to '有名人の作成', '#' %>
+    <% end %>
+  </div>
 </div>
