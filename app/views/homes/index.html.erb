@@ -9,7 +9,7 @@
 
   <div class= 'admin'>
     <% if user_signed_in? && current_user.admin?  %>
-      <%= link_to '有名人の作成', '#' %>
+      <%= link_to '有名人の作成', new_celeb_path %>
     <% end %>
   </div>
 </div>

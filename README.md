@@ -6,7 +6,7 @@
 | -------- | ------ | ----------- |
 | nickname     | string | null: false |
 | email    | string | null: false,unique: true |
-| password | string | null: false |
+| encrypted_password | string | null: false |
 | birthday | date   | null: false |
 
 
@@ -22,8 +22,8 @@
 | ------      | ------ | ----------- |
 | name        | string | null: false |
 | email       | string | null: false |
-| password    | string | null: false |
-| description | string | null: false |
+| password_digest    | string | null: false |
+| description | text | null: false |
 
 ### Association
 
