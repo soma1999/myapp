@@ -5,10 +5,7 @@ class Celeb < ApplicationRecord
     validates :name
   end
 
-  vallidates  
-    :password,
-    format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i},
-    length: {minmum: 6 }
+  validates  :password_digest, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, length: {minimum: 6 }
 
   validates :description, presence: true
 
