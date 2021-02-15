@@ -13,9 +13,26 @@ class CelebsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def new_second
+    @celeb = Celeb.new
+  end
+
+  def login
+    celeb = Celeb.find_by(email: params[:email] )
+    if celeb && celeb.authenticate(params[:password])
+      session[:user_id]=celeb.id
+      redirect_to "/celebs/#{celeb.id}", notice: 'ログインしました'
+    else
+      render :new_second
+    end
+  end
+
   private
 
   def celebs_parameter
-    params.require(:celeb).permit(:name,:email,:password_digest,:description)
+    params.require(:celeb).permit(:name,:email,:password,:description)
   end
 end
