@@ -6,7 +6,10 @@
   <%= f.text_field :email %>
 
   <%= f.label :password, 'パスワード'%>
-  <%= f.password_field :password_digest %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
   <%= f.label :description, '説明'%>
   <%= f.text_area :description %>

@@ -1,0 +1,10 @@
+<%= form_with model: @celeb, url: login_celebs_path, local: true do |f|%>
+  
+  <%= f.label :emal, 'メールアドレス'%>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, 'パスワード'%>
+  <%= f.password_field :password %>
+
+  <%= f.submit 'ログイン'%>
+<% end %>
