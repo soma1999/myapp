@@ -22,8 +22,8 @@
 
     <h1>有名人の方はこちら</h1>
     <% if @current_celeb %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
+      <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete %>
+    <% else  %> 
       <%= link_to 'ログイン', new_second_celebs_path %>
     <% end %>
     </header>

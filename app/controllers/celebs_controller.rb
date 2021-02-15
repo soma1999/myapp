@@ -20,6 +20,11 @@ class CelebsController < ApplicationController
     @celeb = Celeb.new
   end
 
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'ログアウトしました'
+  end
+
   def login
     celeb = Celeb.find_by(email: params[:email] )
     if celeb && celeb.authenticate(params[:password])
