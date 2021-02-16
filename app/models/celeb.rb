@@ -10,4 +10,8 @@ class Celeb < ApplicationRecord
 
   validates :description, presence: true
 
+
+  has_many :users, through: :rooms
+  has_many :rooms 
+  has_many :message_celebs
 end
