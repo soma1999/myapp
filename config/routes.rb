@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     end
     post "/rooms", to: 'rooms#find_or_create_by'
   end
-  resources :rooms, only: [:show] 
+  resources :rooms, only: [:show] do
+    resources :user_comments, only: [:create] 
+  end
 end

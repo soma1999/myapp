@@ -1,0 +1,6 @@
+<h2>投稿する</h2>
+<%= form_with model: @user_comment, url:room_user_comments_path(@room), local: true do |f| %>
+
+<%= f.text_area :content%>
+<%= f.submit '投稿する'%>
+<% end %>

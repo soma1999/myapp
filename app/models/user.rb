@@ -17,8 +17,8 @@ class User < ApplicationRecord
     validates :last_name_katakana
   end
 
-  # has_many :celebs, through: rooms
-  # has_many :rooms
-  # has_many :message_users
+  has_many :celebs, through: :rooms
+  has_many :rooms
+  has_many :message_users
 
 end
