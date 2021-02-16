@@ -1,38 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html >
   <head>
-    <meta charset="utf-8">
+    <%# <meta charset="utf-8"> %>
     <title>Myapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-    <h1>一般ユーザーの方はこちら</h1>
-    <% if user_signed_in?%>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to '新規登録', new_user_registration_path %>
-      <%= link_to 'ログイン', user_session_path, method: :post%>
-    <% end %>
-
-    <h1>有名人の方はこちら</h1>
-    <% if @current_celeb %>
-      <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete %>
-    <% else  %> 
-      <%= link_to 'ログイン', new_second_celebs_path %>
-    <% end %>
+    <%# <header>
+    
     </header>
 
     <main>
     </main>
 
     <footer>
-    </footer>
+    </footer> %>
     <%= yield %>
   </body>
 </html>

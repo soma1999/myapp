@@ -1,0 +1,30 @@
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <%= link_to image_tag("sunny.png", class:"sunny-icon"), root_path %>
+    <form class="search-form" action="#">
+      <input class='input-box' placeholder='キーワードから探す'>
+      <button class="search-button">
+        <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>
+  <div class='nav'>
+  <ul class='lists-left'>
+      <h1>有名人の方はこちら</h1>
+      <% if @current_celeb %>
+        <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete,class:"login" %>
+      <% else  %> 
+        <%= link_to 'ログイン', new_second_celebs_path,class:"login" %>
+      <% end %>
+    </ul> 
+    <ul class='lists-right'>
+      <h1>一般ユーザーの方はこちら</h1>
+      <% if user_signed_in?%>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path , class:"login" %>
+        <%= link_to 'ログイン', user_session_path, method: :post, class: "login" %>
+      <% end %>
+    </ul>
+  </div>
+</header>
