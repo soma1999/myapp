@@ -12,4 +12,12 @@
       <%= link_to '有名人の作成', new_celeb_path %>
     <% end %>
   </div>
+
+  <div class= 'celebs_index'>
+    <% if user_signed_in? %>
+      <% @celebs.each do |celeb| %>
+        <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

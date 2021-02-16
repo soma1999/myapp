@@ -36,7 +36,7 @@
 | Column   | Type       | Options                        |
 | ------   | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
-| celebs   | references | null: false, foreign_key: true |
+| celeb   | references | null: false, foreign_key: true |
 
 ### Association
 
