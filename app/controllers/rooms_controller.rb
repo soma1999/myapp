@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 
   def show
     @user_comment = UserComment.new
+    @celeb_comment = CelebComment.new
     @room = Room.find(params[:id])
   end
 end

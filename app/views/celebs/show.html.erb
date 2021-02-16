@@ -1,3 +1,3 @@
 <% @user_comments.each do |comment|%>
-<%= comment.content%>
+<%=link_to comment.user.nickname, room_path(comment.room_id) %>
 <% end %>
