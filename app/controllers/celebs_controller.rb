@@ -14,6 +14,7 @@ class CelebsController < ApplicationController
   end
 
   def show
+    @user_comments = UserComment.all.order("created_at DESC")
   end
 
   def new_second
