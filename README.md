@@ -45,11 +45,11 @@
 - has_many :message_celebs
 - has_many :message_users
 
-## message_users テーブル
+## user_comments テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| content | string     |                                |
+| content | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
 
@@ -58,7 +58,7 @@
 - belongs_to :user
 - belongs_to :room
 
-## message_celebs テーブル
+## celeb_comments テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
