@@ -1,6 +1,16 @@
-<h2>投稿する</h2>
+<% if user_signed_in? %>
+<h2>投稿する（一般ユーザー）</h2>
 <%= form_with model: @user_comment, url:room_user_comments_path(@room), local: true do |f| %>
 
 <%= f.text_area :content%>
 <%= f.submit '投稿する'%>
 <% end %>
+<% else %>
+<h2>投稿する（有名人）</h2>
+<%= form_with model: @celeb_comment, url:room_celeb_comments_path(@room), local: true do |f| %>
+
+<%= f.text_area :content%>
+<%= f.submit '投稿する'%>
+<% end %>
+<% end %>
+
