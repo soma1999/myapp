@@ -1,5 +1,6 @@
 class Celeb < ApplicationRecord
   has_secure_password
+  has_one_attached :image
 
   with_options presence: true, uniqueness: true do
     validates :email
