@@ -9,7 +9,7 @@ class Celeb < ApplicationRecord
 
   validates  :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, length: {minimum: 6 }
 
-  validates :description, presence: true
+  validates :description, presence: true, length: {maximum: 120}
 
 
   has_many :users, through: :rooms

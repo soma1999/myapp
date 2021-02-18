@@ -1,23 +1,110 @@
-<div class= 'main'>
-  <div class= 'content'>
-    誰とでも有名人と繋がれるサイト
-  </div>
-
-  <div class= 'famous_index'>
-    有名人一覧
-  </div>
-
-  <div class= 'admin'>
+<%= render "shared/header" %>
+<div class= 'admin'>
     <% if user_signed_in? && current_user.admin?  %>
       <%= link_to '有名人の作成', new_celeb_path %>
     <% end %>
   </div>
 
-  <div class= 'celebs_index'>
-    <% if user_signed_in? %>
-      <% @celebs.each do |celeb| %>
-        <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post %>
-      <% end %>
-    <% end %>
+<div class= 'main'>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      人生を最高にするアプリ
+    </h2>
+    <p class='service-explain'>
+      Sunnyは簡単な登録のみで<br>
+      誰でも有名人と<br>
+      つながることができる
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
+
+  <div class='select-reason-contents'>
+    <h2 class='title'>
+      Sunnyの楽しみ方
+    </h2>
+    <ul class="reason-lists">
+      <li class='list'>
+        <%= image_tag "reason-list1.png", class: "list-pict"%>
+        <span class='reason-list-number'>1</span>
+        <h3 class='reason-list-text'>
+          登録簡単
+        </h3>
+        <p class='reason-list-description'>
+          登録後すぐに使える！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "reason-list2.png", class: "list-pict"%>
+        <span class='reason-list-number'>2</span>
+        <h3 class='reason-list-text'>
+          憧れのあの人と繋がれる！
+        </h3>
+        <p class='reason-list-description'>
+          安価で繋がることができる！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "reason-list3.png", class: "list-pict"%>
+        <span class='reason-list-number'>3</span>
+        <h3 class='reason-list-text'>
+          あなただけの質問ができる
+        </h3>
+        <p class='reason-list-description'>
+          二人だけのチャットルームで会話ができる!!
+        </p>
+      </li>
+    </ul>
   </div>
 </div>
+
+
+  <div class= 'famous-index'> 
+    <h2 class= 'title'>
+      有名人一覧
+    </h2>
+    <div class= 'celebs-index'>
+      <ul class='celebs-lists'>
+
+        <% if user_signed_in? %>
+
+            <% @celebs.each do |celeb| %>
+              <li class='list'>
+                  <div class="celeb-contents">
+                    <%= image_tag celeb.image, class: "celeb-image"%>
+                    <div class="celeb-content">
+                      <h3 class="celeb-name">
+                        <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post  %>
+                      </h3>
+                      <p class="celeb-description">
+                        <%= celeb.description%>
+                      </p>
+                    </div>
+                  </div>
+              </li>
+            <% end %>
+  
+        <% else %>
+
+            <% @celebs.each do |celeb| %>
+              <li class='list'>
+                  <div class="celeb-contents">
+                    <%= image_tag celeb.image, class: "celeb-image"%>
+                    <div class="celeb-content">
+                      <h3 class="celeb-name">
+                        <%= celeb.name %>
+                      </h3>
+                      <p class="celeb-description">
+                        <%= celeb.description%>
+                      </p>
+                    </div>
+                  </div>
+              </li>   
+            <% end %>
+      
+        <% end %>
+      </ul>
+    </div>
+  </div>
