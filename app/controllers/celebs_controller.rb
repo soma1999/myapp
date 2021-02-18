@@ -39,6 +39,6 @@ class CelebsController < ApplicationController
   private
 
   def celebs_parameter
-    params.require(:celeb).permit(:name,:email,:password,:description)
+    params.require(:celeb).permit(:name,:email,:password,:description,:image)
   end
 end

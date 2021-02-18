@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <%= form_with model: @celeb, url: celebs_path, local: true do |f|%>
   <%= f.label :name, '名前'%>
   <%= f.text_field :name %>
@@ -13,6 +15,9 @@
 
   <%= f.label :description, '説明'%>
   <%= f.text_area :description %>
+
+  <%= f.label :image, '画像'%>
+  <%= f.file_field :image %>
 
   <%= f.submit '登録'%>
 <% end %>
