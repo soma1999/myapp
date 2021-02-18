@@ -73,7 +73,7 @@
             <% @celebs.each do |celeb| %>
               <li class='list'>
                   <div class="celeb-contents">
-                    <%= image_tag celeb.image, class: "celeb-image"%>
+                    <%= image_tag celeb.image, class: "celeb-image" %>
                     <div class="celeb-content">
                       <h3 class="celeb-name">
                         <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post  %>
@@ -108,3 +108,5 @@
       </ul>
     </div>
   </div>
+
+<%= render "shared/footer" %>
