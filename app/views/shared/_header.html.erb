@@ -9,15 +9,19 @@
     </form>
   </div>
   <div class='nav'>
-  <ul class='lists-left'>
+    <ul class='lists-left'>
+    <% unless user_signed_in? %>
       <h1>有名人の方はこちら</h1>
       <% if @current_celeb %>
         <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete,class:"login" %>
+        <%= link_to 'マイページ', celeb_path(@current_celeb), class: "login" %>
       <% else  %> 
         <%= link_to 'ログイン', new_second_celebs_path,class:"login" %>
       <% end %>
+    <% end %>
     </ul> 
     <ul class='lists-right'>
+    <% unless @current_celeb %>
       <h1>一般ユーザーの方はこちら</h1>
       <% if user_signed_in?%>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
@@ -25,6 +29,7 @@
         <%= link_to '新規登録', new_user_registration_path , class:"login" %>
         <%= link_to 'ログイン', user_session_path, method: :post, class: "login" %>
       <% end %>
+    <% end %>
     </ul>
   </div>
 </header>

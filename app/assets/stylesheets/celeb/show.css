@@ -1,0 +1,24 @@
+.celeb-show-main{
+  width: 100%;
+  background-color: #66cfff;
+  background-size: cover;
+  padding: 10vh 20vw;
+}
+
+.celeb-show-content{
+  margin-bottom: 50px;
+}
+
+.celeb-profile{
+  display: flex;
+}
+
+.celeb-show-name{
+  margin-left: 30px;
+  font-size: 30px;
+  padding-top: 30px;
+}
+
+.user-comment-list{
+  margin: 0 0 5vh 5vw;
+}
