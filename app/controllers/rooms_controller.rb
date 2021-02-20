@@ -7,18 +7,9 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-
-
-      @user_comment = UserComment.new
-      @celeb_comment = CelebComment.new     
-      @user_comments = UserComment.where(user_id: @room.user_id)
-      @celeb_comments = CelebComment.where(celeb_id: @room.celeb_id)
-      @comments = (@user_comments + @celeb_comments).order("created_at DESC")
-    # else
-    #   @celeb_comment = CelebComment.new      
-    #   @user_comments = UserComment.all(user_id: @room.user_id)
-    #   @celeb_comments = CelebComment.all(celeb_id: @room.celeb_id)
-    #   @comments = (@user_comments + @celeb_comments).order("created_at DESC")
-    # end
+    @celeb = Celeb.find(@room.celeb_id)
+    @message = Message.new
+    @messages = @room.messages
   end
+  
 end

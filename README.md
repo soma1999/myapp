@@ -2,71 +2,63 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname     | string | null: false |
-| email    | string | null: false,unique: true |
-| encrypted_password | string | null: false |
-| birthday | date   | null: false |
+| Column               | Type         | Options     |
+| ------               | ------       | ----------- |
+| nickname             | string       | null: false |
+| email                | string       | null: false, unique: true |
+| encrypted_password   | string       | null: false |
+| first_name           | string       | null: false |
+| last_name            | string       | null: false |
+| first_name_katakana  | string       | null: false |
+| last_name_katakana   | string       | null: false |
+| birthday             | date         | null: false |
+| admin                | string       |
+
 
 
 ### Association
 
-- has_many :celebs, through: rooms
 - has_many :rooms
-- has_many :message_users
+- has_many :messages
 
 ## celebs テーブル
 
-| Column      | Type   | Options     |
-| ------      | ------ | ----------- |
-| name        | string | null: false |
-| email       | string | null: false |
-| password_digest    | string | null: false |
-| description | text | null: false |
+| Column          | Type   | Options     |
+| ------          | ------ | ----------- |
+| name            | string | null: false |
+| email           | string | null: false,unique: true  |
+| password_digest | string | null: false |
+| description     | text   | null: false |
 
 ### Association
 
-- has_many :users, through: rooms
 - has_many :rooms
-- has_many :message_celebs
+- has_many :messages
 
 ## rooms テーブル
 
 | Column   | Type       | Options                        |
 | ------   | ---------- | ------------------------------ |
 | user     | references | null: false, foreign_key: true |
-| celeb   | references | null: false, foreign_key: true |
+| celeb    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :celeb
-- has_many :message_celebs
-- has_many :message_users
+- has_many :messages
 
-## user_comments テーブル
+## messages テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | text       | null: false                    |
-| user    | references | null: false, foreign_key: true |
+| user    | references | foreign_key: true              |
+| celeb   | references | foreign_key: true              |
 | room    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :room
-
-## celeb_comments テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | text       | null:false                     |
-| celeb   | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
-
-### Association
-
 - belongs_to :celeb
-- belongs_to :message
