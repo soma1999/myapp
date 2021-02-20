@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     post "/rooms", to: 'rooms#find_or_create_by'
   end
   resources :rooms, only: [:show] do
-    resources :user_comments, only: [:create] 
-    resources :celeb_comments, only: [:create]
+    resources :messages, only: [:create] 
+    # resources :user_comments, only: [:create] 
+    # resources :celeb_comments, only: [:create]
   end
 end

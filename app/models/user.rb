@@ -19,6 +19,6 @@ class User < ApplicationRecord
 
   has_many :celebs, through: :rooms
   has_many :rooms
-  has_many :message_users
+  has_many :messages
 
 end

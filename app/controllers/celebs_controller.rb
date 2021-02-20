@@ -14,7 +14,7 @@ class CelebsController < ApplicationController
   end
 
   def show
-    @user_comments = UserComment.all.order("created_at DESC")
+    @user_comments = Message.includes(:celeb).order("created_at DESC")
     @celeb = Celeb.find(params[:id])
   end
 
