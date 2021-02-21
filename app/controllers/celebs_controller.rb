@@ -14,8 +14,8 @@ class CelebsController < ApplicationController
   end
 
   def show
-    @user_comments = Message.includes(:celeb).order("created_at DESC")
     @celeb = Celeb.find(params[:id])
+    @rooms = Room.where(celeb_id: @celeb.id).order("created_at DESC")
   end
 
   def new_second

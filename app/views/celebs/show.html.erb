@@ -10,11 +10,12 @@
     </div>
   </div>
   <div class="user-comments">
-    <% @user_comments.each do |comment|%>
+    <% @rooms.each do |room|%>
       <ul class='user-comment-list'> 
-        <%=link_to comment.user.nickname, room_path(comment.room_id) %>
         <li class='user-comment'>
-          <%=comment.content%>
+          <%= image_tag "default-image.png", class: 'img1' %>
+          <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+          <%= room.messages.last.content %> 
         </li>
       </ul>  
     <% end %>
