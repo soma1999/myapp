@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @celeb = Celeb.find(@room.celeb_id)
     @message = Message.new
-    @messages = @room.messages
+    @messages = Message.where(room_id: @room).order("created_at ASC")
   end
   
 end
