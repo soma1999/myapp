@@ -30,6 +30,7 @@
     <% if user_signed_in? %>
       <% if message.user_id == current_user.id %>
         <div class="mycomment">
+          <%= message.read ? '既読' : '  '%>
           <%= l message.created_at, format: :short %>
           <p><%= message.content %></p>
         </div>
@@ -43,14 +44,15 @@
               <p><%= message.content %></p>
             </div>
             <div class='created_at'>
-                <%= l message.created_at, format: :short %>
-              </div>
+              <%= l message.created_at, format: :short %>
+            </div>
           </div>
         </div>
       <% end %>
     <% else %>
       <% if message.celeb_id == @current_celeb.id %>
         <div class="mycomment">
+          <%= message.read ? '既読' : '  ' %>
           <%= l message.created_at, format: :short %>
           <p><%= message.content %></p>
         </div>
@@ -63,8 +65,10 @@
             <div class="says">
               <p><%= message.content %></p>
             </div>
+            <div class='created_at'>
+              <%= l message.created_at, format: :short %>
+            </div>
           </div>
-          <%= l message.created_at, format: :short %>
         </div>
       <% end %>
     <% end %>
