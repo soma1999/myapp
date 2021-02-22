@@ -20,5 +20,4 @@ class User < ApplicationRecord
   has_many :celebs, through: :rooms
   has_many :rooms
   has_many :messages
-
 end

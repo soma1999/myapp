@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_02_19_091820) do
     t.bigint "celeb_id"
     t.bigint "user_id"
     t.bigint "room_id"
+    t.boolean "read", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["celeb_id"], name: "index_messages_on_celeb_id"

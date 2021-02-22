@@ -12,7 +12,7 @@
 | first_name_katakana  | string       | null: false |
 | last_name_katakana   | string       | null: false |
 | birthday             | date         | null: false |
-| admin                | string       |
+| admin                | boolean      |
 
 
 
@@ -56,9 +56,11 @@
 | user    | references | foreign_key: true              |
 | celeb   | references | foreign_key: true              |
 | room    | references | null: false, foreign_key: true |
+| read    | boolean    | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :room
 - belongs_to :celeb
+

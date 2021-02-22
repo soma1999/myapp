@@ -15,4 +15,5 @@ class Celeb < ApplicationRecord
   has_many :users, through: :rooms
   has_many :rooms 
   has_many :messages
+
 end
