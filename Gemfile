@@ -63,3 +63,5 @@ gem 'image_processing', '~> 1.2'
 
 gem 'faker'
 gem 'faker-japanese'
+
+gem 'jquery-rails'

@@ -11,7 +11,5 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: [:show] do
     resources :messages, only: [:create] 
-    # resources :user_comments, only: [:create] 
-    # resources :celeb_comments, only: [:create]
   end
 end
