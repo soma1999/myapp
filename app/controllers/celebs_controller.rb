@@ -33,6 +33,7 @@ class CelebsController < ApplicationController
       session[:user_id]=celeb.id
       redirect_to "/celebs/#{celeb.id}", notice: 'ログインしました'
     else
+      flash[:notice]= 'Eメールまたはパスワードが違います。'
       render :new_second
     end
   end

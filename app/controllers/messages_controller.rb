@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
       if @message.save
         redirect_to room_path(@message.room_id)
       else
+        @messages = Message.where(room_id: @room).order("created_at ASC")
         render template: "rooms/show"
       end
     else
@@ -14,6 +15,7 @@ class MessagesController < ApplicationController
       if @message.save
         redirect_to room_path(@message.room_id)
       else
+        @messages = Message.where(room_id: @room).order("created_at ASC")
         render template: "rooms/show"
       end
     end
