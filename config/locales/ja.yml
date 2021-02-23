@@ -3,3 +3,17 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+
+  date:
+    order:
+      - :year
+      - :month
+      - :day 
+
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      tweet:
+        text: テキスト
+        image: 画像
