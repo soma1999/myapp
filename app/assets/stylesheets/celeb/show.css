@@ -2,7 +2,8 @@
   width: 100%;
   background-color: #66cfff;
   background-size: cover;
-  padding: 10vh 20vw;
+  padding: 5vh 20vw;
+  height: 500px;
 }
 
 .celeb-show-content{
@@ -21,4 +22,13 @@
 
 .user-comment-list{
   margin: 0 0 5vh 5vw;
+}
+
+.user-comment{
+  display: flex;
+  align-items: center;
+}
+
+.chat-room-name{
+  margin: 0 10px;
 }

@@ -1,0 +1,44 @@
+<%= render "shared/second-header" %>
+
+<div class='user-show-main'>
+
+  <div class='left-bar'>
+    <div class='user-show-profile'>
+      <%= image_tag @user.image, class: 'user-show-img'%>
+      <div class='user-name'>
+        <%= current_user.nickname %>
+      </div>
+    </div>
+    <h2>新着メッセージ</h2>
+    <div class="user-comments">
+      <% @rooms.each do |room| %>
+        <% room.messages.each do |message| %>
+          <% if message.user_id == nil%>
+            <% unless message.read %>
+              <ul class='user-comment-list'> 
+                <li class='user-comment'>
+                  <%= image_tag message.celeb.image, class: 'img1' %>
+                  <%= link_to "#{message.celeb.name}さん", room_path(message.room), class: 'chat-room-name' %>
+                </li>
+              </ul>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='right-bar'>
+    <h2 class='chat-history'>トーク履歴</h2>
+    <% @rooms.each do |room| %>
+      <ul class='user-comment-list'>
+        <li class='user-comment'>
+          <%= image_tag room.celeb.image, class: 'img1'%>
+          <%= link_to "#{room.celeb.name}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div> 
+
+<%= render 'shared/second-footer' %>
