@@ -1,25 +1,44 @@
 <%= render "shared/header" %>
 
-<div class='celeb-show-main'>
-  <div class='celeb-show-content'>
-    <div class='celeb-profile'>
-      <%= image_tag @celeb.image, class: "celeb-image" %>
-      <h2 class='celeb-show-name'>
+<div class='user-show-main'>
+
+  <div class='left-bar'>
+    <div class='user-show-profile'>
+      <%= image_tag @celeb.image, class: 'user-show-img'%>
+      <div class='user-name'>
         <%= @celeb.name %>
-      </h2>
+      </div>
+    </div>
+    <h2>新着メッセージ</h2>
+    <div class="user-comments">
+      <% @rooms.each do |room| %>
+        <% room.messages.each do |message| %>
+          <% if message.celeb_id == nil%>
+            <% unless message.read %>
+              <ul class='user-comment-list'> 
+                <li class='user-comment'>
+                  <%= image_tag message.user.image, class: 'img1' %>
+                  <%= link_to "#{message.user.nickname}さん", room_path(message.room), class: 'chat-room-name' %>
+                </li>
+              </ul>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="user-comments">
-    <% @rooms.each do |room|%>
-      <ul class='user-comment-list'> 
+
+  <div class='right-bar'>
+    <h2 class='chat-history'>トーク履歴</h2>
+    <% @rooms.each do |room| %>
+      <ul class='user-comment-list'>
         <li class='user-comment'>
-          <%= image_tag "default-image.png", class: 'img1' %>
+          <%= image_tag room.user.image, class: 'img1'%>
           <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
-          <%= room.messages.last.content %> 
         </li>
-      </ul> 
+      </ul>
     <% end %>
   </div>
-</div>
+</div> 
 
 <%= render "shared/second-footer" %>
