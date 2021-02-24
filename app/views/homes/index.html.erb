@@ -75,9 +75,7 @@
                   <div class="celeb-contents">
                     <%= image_tag celeb.image, class: "celeb-image" %>
                     <div class="celeb-content">
-                      <h3 class="celeb-name">
-                        <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post  %>
-                      </h3>
+                      <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post,class: 'celeb-name'  %>
                       <p class="celeb-description">
                         <%= celeb.description%>
                       </p>
@@ -93,9 +91,7 @@
                   <div class="celeb-contents">
                     <%= image_tag celeb.image, class: "celeb-image" %>
                     <div class="celeb-content">
-                      <h3 class="celeb-name">
-                        <%= celeb.name %>
-                      </h3>
+                      <%= celeb.name %>
                       <p class="celeb-description">
                         <%= celeb.description%>
                       </p>
