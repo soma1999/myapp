@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "homes#index" 
+
+  resources :users, only:  [:show]
+
   resources :celebs, only: [:new, :create, :show, :destroy] do
     collection do
       get 'new_second'
