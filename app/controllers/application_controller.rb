@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_katakana, :last_name_katakana, :birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :image, :first_name, :last_name, :first_name_katakana, :last_name_katakana, :birthday])
   end
 
   def current_celeb
