@@ -11,7 +11,7 @@
 
 .search-bar-contents{
   text-align: center;
-  /* margin-left: 140px; */
+
 }
 
 .sunny-icon{
@@ -72,4 +72,14 @@ h1{
 
 .login{
   margin-left: 10px;
+  text-decoration: none;
+}
+
+.login:link ,:visited {
+  color: black;
+}
+
+.login:hover{
+  color: blue;
+  text-decoration:underline;
 }

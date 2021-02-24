@@ -111,4 +111,10 @@
 
 .chat-room-name{
   margin: 0 10px;
+  text-decoration: none;
+}
+
+.chat-room-name:hover{
+  color: blue;
+  text-decoration:underline;
 }
