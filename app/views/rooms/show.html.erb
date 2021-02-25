@@ -1,87 +1,108 @@
 <%= render "shared/header"%>
 
 <div class='room-show-main'>
-<div class='user-celeb-name'>
-  <% if user_signed_in? %>
-    <div class="fukidasi1">
-      <div class="faceicon1">
-        <%= image_tag @room.celeb.image, class: 'img1' %>
-        <h2 class='name1'><%= @room.celeb.name %>さんとのトーク</h2>
-      </div>
-    </div>
-  <% else %>
-    <div class="fukidasi1">
-      <div class="faceicon1">
-        <%= image_tag "default-image.png", class: 'img1' %>
-        <h2 class='name1'><%= @room.user.nickname %>さんとのトーク</h2>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
-<div id="chats">
-  <% if @messages.blank? %>
-    <p class="first-chat">
-      初めてのトークを楽しもう!!
-    </p>
-  <% end %>
-  <% @messages.each do |message|%>
+  <div class='user-celeb-name'>
     <% if user_signed_in? %>
-      <% if message.user_id == current_user.id %>
-        <div class="mycomment">
-          <%= message.read ? '既読' : '  '%>
-          <%= l message.created_at, format: :short %>
-          <p><%= message.content %></p>
+      <div class="fukidasi1">
+
+        <div class='room-celeb-description'>
+          <h2 class='celeb-description-title'>プロフィール</h2>
+          <p class='room-celeb-content'><%= @room.celeb.description %></p>
         </div>
-      <% else %>
-        <div class="fukidasi">
-          <div class="faceicon">
-            <%= image_tag @room.celeb.image, class: 'img' %>
-          </div>
-          <div class="chatting">
-            <div class="says">
-              <p><%= message.content %></p>
-            </div>
-            <div class='created_at'>
-              <%= l message.created_at, format: :short %>
-            </div>
-          </div>
+
+        <div class="faceicon1">
+          <%= image_tag @room.celeb.image, class: 'img1' %>
+          <h2 class='name1'><%= @room.celeb.name %>さんとのトーク</h2>
         </div>
-      <% end %>
+
+        <div class='celeb-index-contents'>
+          <div class='celeb-index-title'>
+            <%= image_tag "down-arrow.png", class: 'down-arrow', id: 'lists' %>
+            <h2 id= 'celeb-index' class='celeb-index-blue'>有名人一覧表示</h2>
+          </div>
+          <ul class='room-celeb-name hidden' id="pull-down">
+            <% @celebs.each do |celeb| %>
+              <li>
+                <%= image_tag celeb.image, class: 'img1' %>
+                <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      </div>
     <% else %>
-      <% if message.celeb_id == @current_celeb.id %>
-        <div class="mycomment">
-          <%= message.read ? '既読' : '  ' %>
-          <%= l message.created_at, format: :short %>
-          <p><%= message.content %></p>
+      <div class="fukidasi1">
+        <div class="faceicon1">
+          <%= image_tag @room.user.image, class: 'img1' %>
+          <h2 class='name1'><%= @room.user.nickname %>さんとのトーク</h2>
         </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="chats">
+    <% if @messages.blank? %>
+      <p class="first-chat">
+        初めてのトークを楽しもう!!
+      </p>
+    <% end %>
+    <% @messages.each do |message|%>
+      <% if user_signed_in? %>
+        <% if message.user_id == current_user.id %>
+          <div class="mycomment">
+            <%= message.read ? '既読' : '  '%>
+            <%= l message.created_at, format: :short %>
+            <p><%= message.content %></p>
+          </div>
+        <% else %>
+          <div class="fukidasi">
+            <div class="faceicon">
+              <%= image_tag @room.celeb.image, class: 'img' %>
+            </div>
+            <div class="chatting">
+              <div class="says">
+                <p><%= message.content %></p>
+              </div>
+              <div class='created_at'>
+                <%= l message.created_at, format: :short %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% else %>
-        <div class="fukidasi">
-          <div class="faceicon">
-            <%= image_tag "default-image.png", class: 'img' %>
+        <% if message.celeb_id == @current_celeb.id %>
+          <div class="mycomment">
+            <%= message.read ? '既読' : '  ' %>
+            <%= l message.created_at, format: :short %>
+            <p><%= message.content %></p>
           </div>
-          <div class="chatting">
-            <div class="says">
-              <p><%= message.content %></p>
+        <% else %>
+          <div class="fukidasi">
+            <div class="faceicon">
+              <%= image_tag @room.user.image, class: 'img' %>
             </div>
-            <div class='created_at'>
-              <%= l message.created_at, format: :short %>
+            <div class="chatting">
+              <div class="says">
+                <p><%= message.content %></p>
+              </div>
+              <div class='created_at'>
+                <%= l message.created_at, format: :short %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div class='send-form'>
+  <div class='send-form'>
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
         <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content"%>
         <%= f.submit '送信', class: "submit"%>
       </div>
     <% end %>
-</div>
-
+  </div>
 </div>

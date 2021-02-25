@@ -1,0 +1,255 @@
+.room-show-main{
+  overflow-x: hidden;
+}
+
+
+/* 有名人の名前の列のCSS */
+.fukidasi1{
+  width: 100%;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-celeb-description{
+  width: 25vw;
+}
+.celeb-description-title{
+  text-align: center;
+  font-size: 20px;
+  position: relative;
+  padding: 1rem 2rem;
+  border-left: 5px dotted #ffdab9;
+  background: #ffefd5;
+  border-radius: 5px;
+}
+.room-celeb-content{
+  margin-top: 20px;
+  position: absolute;
+  right: 1120px;
+  width: 230px;
+  font-size: 25px;
+  z-index: 10;
+  color: #6b6a6a;
+}
+
+
+
+.faceicon1{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50vw;
+  background-color: #fffaf0;
+  border-radius: 5px;
+}
+.img1{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.name1{
+  font-size: 20px;
+  margin-left: 10px;
+  padding: 3px;
+}
+
+
+.celeb-index-contents{
+  width: 25vw;
+  border-radius: 3px;
+  transition: all .5s ease;
+  color: #474747;
+}
+.celeb-index-title {
+  height: 100%;
+  background-color: #ffefd5;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  display: flex;
+  align-items: center;
+}
+.celeb-index-contents:active{
+  background-color: #f8f8f8
+}
+.down-arrow:hover{
+  transform: rotate(180deg)
+}
+.down-arrow{
+  width: 20px;
+  height: 20px;
+  transition: all .1s ease-in-out;
+}
+.celeb-index-blue{
+  font-size: 23px;
+}
+.room-celeb-name{
+  position: absolute;
+  background-color:#fffaf0;
+  margin-top: 1px;
+  box-shadow: 0 1px 2px rgb(204, 204, 204);
+  border-radius: 8px;
+  z-index: 9;
+  padding: 0;
+  width: 25vw;
+  overflow: hidden;
+  max-height: 580px;
+  overflow-y: auto;
+  z-index: 9;
+}
+.room-celeb-name li{
+  padding: 10px;
+  transition: all .2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+.room-celeb-name li:hover {
+  background-color: #f2f2f2;
+}
+.room-celeb-name li:active {
+  background-color: #e2e2e2;
+}
+.room-celeb-name .chat-room-name:hover{
+  color:#ffdead;
+}
+.chat-room-name:link{
+  color: black;
+}
+.hidden{
+  display: none;
+}
+
+
+/*/* 有名人の名前の列のCSS *//*
+
+/* チャットボックスのCSS */
+
+.chats{
+  padding: 20px 10px;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 550px;
+  width: 50vw;
+  border-radius: 8px;
+}
+
+.first-chat{
+  text-align: center;
+  color: azure;
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+.fukidasi{
+  width: 100%;
+  margin: 10px 0;
+}
+
+.fukidasi .faceicon{
+  float: left;
+  margin-right: -50px; 
+}
+
+.fukidasi .faceicon .img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fukidasi .chatting {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.says:after{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.mycomment{
+  margin: 10px 0;
+}
+
+.mycomment p{
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+  text-align: left;
+}
+
+.mycomment p:after{
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+
+.send-form{
+  display: flex;
+  justify-content: center;
+}
+
+.send-form-content{
+  resize: none; 
+  width: 35vw;
+  display: inline-block;
+  margin: 0 auto;
+  padding-left: 10px;
+  font-size: 20px; 
+  border-radius: 8px;
+  line-height: 30px;
+  height: 45px;
+} 
+
+.submit{
+  background-color: #7da4cd;;
+  border-radius: 20%;
+  font-size: 16px;
+  width: 80px;
+}
+
+.send-form-blue{
+  display: flex;
+}
+
+/*/* チャットボックスのCSS */
