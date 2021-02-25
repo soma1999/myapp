@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @celeb = Celeb.find(@room.celeb_id)
+    @celebs = Celeb.all
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
 
