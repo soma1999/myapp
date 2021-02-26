@@ -16,6 +16,7 @@ class CelebsController < ApplicationController
   def show
     @celeb = Celeb.find(params[:id])
     @rooms = Room.where(celeb_id: @celeb.id).order("created_at DESC")
+    @blocks = Block.where(room_id: @celeb.rooms)
   end
 
   def new_second
