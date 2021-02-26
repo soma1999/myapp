@@ -31,12 +31,14 @@
   <div class='right-bar'>
     <h2 class='chat-history'>トーク履歴</h2>
     <% @rooms.each do |room| %>
-      <ul class='user-comment-list'>
-        <li class='user-comment'>
-          <%= image_tag room.celeb.image, class: 'img1'%>
-          <%= link_to "#{room.celeb.name}さんとのトーク", room_path(room), class: 'chat-room-name' %>
-        </li>
-      </ul>
+      <% unless room.messages.blank? %>
+        <ul class='user-comment-list'>
+          <li class='user-comment'>
+            <%= image_tag room.celeb.image, class: 'img1'%>
+            <%= link_to "#{room.celeb.name}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+          </li>
+        </ul>
+      <% end %>
     <% end %>
   </div>
 </div> 

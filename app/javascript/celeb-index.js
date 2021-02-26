@@ -21,4 +21,4 @@ function pullDown(){
   })
 }
 
-window.addEventListener("load", pullDown)
+document.addEventListener("turbolinks:load", pullDown)

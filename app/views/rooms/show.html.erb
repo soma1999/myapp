@@ -21,17 +21,52 @@
             <h2 id= 'celeb-index' class='celeb-index-blue'>有名人一覧表示</h2>
           </div>
           <ul class='room-celeb-name hidden' id="pull-down">
-            <% @celebs.each do |celeb| %>
-              <li>
-                <%= image_tag celeb.image, class: 'img1' %>
-                <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
-              </li>
-            <% end %>
+            <li>
+              <%= search_form_for @p, url: room_search_path(@room) do |f| %>
+                <%= f.label :name, "キーワード" %>
+                <%= f.search_field :name_cont %>
+                <%= f.submit '検索' %>
+              <% end %>
+            </li>
+            <% if @p = nil %>
+              <% @celebs.each do |celeb| %>
+                <li>
+                  <%= image_tag celeb.image, class: 'img1' %>
+                  <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
+                </li>
+              <% end %>
+            <% else %> 
+              <% if @results.length != 0 %>
+                <% @results.each do |result| %>
+                  <td>
+                  <br>
+                  <li>
+                    <%= image_tag result.image, class: 'img1' %>
+                    <%= link_to result.name, celeb_rooms_path(result), method: :post, class: 'chat-room-name' %>
+                  </li>
+                <% end %>
+                <% @celebs.each do |celeb| %>
+                  <li>
+                    <%= image_tag celeb.image, class: 'img1' %>
+                    <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
+                  </li>
+                <% end %>
+              <% else %>
+                <li>             
+                  該当する有名人はいません
+                </li>
+                <% @celebs.each do |celeb| %>
+                  <li>
+                    <%= image_tag celeb.image, class: 'img1' %>
+                    <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %> 
           </ul>
         </div>
       </div>
 
-      </div>
     <% else %>
       <div class="fukidasi1">
         <div class="faceicon1">
