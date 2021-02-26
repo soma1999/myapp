@@ -34,6 +34,7 @@
 
 - has_many :rooms
 - has_many :messages
+ 
 
 ## rooms テーブル
 
@@ -47,6 +48,7 @@
 - belongs_to :user
 - belongs_to :celeb
 - has_many :messages
+- has_one  :block
 
 ## messages テーブル
 
@@ -64,3 +66,12 @@
 - belongs_to :room
 - belongs_to :celeb
 
+## blocks テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| room    | references | foreign_key: true              |
+
+### Association
+
+- belongs_to :room
