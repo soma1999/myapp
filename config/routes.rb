@@ -12,11 +12,12 @@ Rails.application.routes.draw do
       post 'login'
     end
     post "/rooms", to: 'rooms#find_or_create_by'
+
   end
 
   resources :rooms, only: [:show] do
     get 'search', to: 'searches#search'
-
+    resources :blocks, only: [:create]
     resources :messages, only: [:create] 
   end
 
