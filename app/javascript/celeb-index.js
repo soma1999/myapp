@@ -1,4 +1,6 @@
 function pullDown(){
+  const obj = document.getElementById("messages");
+  obj.scrollTop = obj.scrollHeight;
 
   const pullDownButton = document.getElementById("lists")
   const celebIndex = document.getElementById("celeb-index")
