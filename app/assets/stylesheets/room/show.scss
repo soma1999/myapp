@@ -37,11 +37,13 @@
 
 .faceicon1{
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  align-items: center;
   margin: 0 auto;
   width: 50vw;
   background-color: #fffaf0;
   border-radius: 5px;
+  padding-left: 220px;
 }
 .img1{
   width: 40px;
@@ -49,9 +51,13 @@
   border-radius: 50%;
 }
 .name1{
+
   font-size: 20px;
   margin-left: 10px;
   padding: 3px;
+}
+.block-btn>.chat-room-name{
+  margin-left: 25px;
 }
 
 

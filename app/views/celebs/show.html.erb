@@ -33,12 +33,14 @@
   <div class='right-bar-1'>
     <h2 class='chat-history-1'>トーク履歴</h2>
     <% @rooms.each do |room| %>
-      <ul class='user-comment-list-1'>
-        <li class='user-comment-1'>
-          <%= image_tag room.user.image, class: 'img1'%>
-          <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
-        </li>
-      </ul>
+      <% unless room.block %>
+        <ul class='user-comment-list-1'>
+          <li class='user-comment-1'>
+            <%= image_tag room.user.image, class: 'img1'%>
+            <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+          </li>
+        </ul> 
+      <% end %>
     <% end %>
   </div>
 
@@ -50,6 +52,7 @@
         <li class='user-comment-1'>
           <%=image_tag block.room.user.image, class: 'img1' %>
           <p class='chat-room-name'><%= "#{block.room.user.nickname}さんとのトーク" %></p>
+          <%= link_to "ブロック解除", room_block_path(block.room,block), method: :delete , class: 'chat-room-name'%>
         </li>
       </ul>
     <% end %>
