@@ -7,4 +7,6 @@ class Message < ApplicationRecord
   belongs_to :celeb, optional: true
   belongs_to :room
   belongs_to :user, optional: true
+
+
 end
