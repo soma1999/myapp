@@ -14,7 +14,7 @@ consumer.subscriptions.create("MessageChannel", {
     const month = ("0"+(today.getMonth() + 1)).slice(-2);
     const day = ("0"+today.getDay()).slice(-2);
     const hours = today.getHours();
-    const minutes = today.getMinutes();
+    const minutes = ("0"+today.getMinutes()).slice(-2);
     const html = `<div class="mycomment" >${month}/${day} ${hours}:${minutes} <p>${data.content.content}</p></div>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('message_content')
