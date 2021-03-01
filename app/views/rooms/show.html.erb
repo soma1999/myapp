@@ -80,7 +80,7 @@
     <% end %>
   </div>
   
-  <div class="chats">
+  <div class="chats" id='messages'>
     <% if @messages.blank? %>
       <p class="first-chat">
         初めてのトークを楽しもう!!
@@ -89,9 +89,9 @@
     <% @messages.each do |message|%>
       <% if user_signed_in? %>
         <% if message.user_id == current_user.id %>
-          <div class="mycomment">
+          <div class="mycomment" >
             <%= message.read ? '既読' : '  '%>
-            <%= l message.created_at, format: :short %>
+            <%= l message.created_at, format: :short%>
             <p><%= message.content %></p>
           </div>
         <% else %>
@@ -133,13 +133,14 @@
         <% end %>
       <% end %>
     <% end %>
+
   </div>
 
   <div class='send-form'>
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
-        <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content"%>
-        <%= f.submit '送信', class: "submit"%>
+        <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content" %>
+        <%= f.submit '送信', class: "submit ", id: 'message-button'%>
       </div>
     <% end %>
   </div>

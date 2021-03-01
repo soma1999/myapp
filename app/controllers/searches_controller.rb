@@ -10,8 +10,6 @@ class SearchesController < ApplicationController
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
     render template: "rooms/show"
-
-    
   end
 
   private
