@@ -28,6 +28,12 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    redirect_to room_path(params[:room_id])
+  end
+
   private
 
   def user_comment_params

@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:show] do
     get 'search', to: 'searches#search'
-    resources :blocks, only: [:create]
-    resources :messages, only: [:create] 
+    resources :blocks, only: [:create, :destroy]
+    resources :messages, only: [:create, :destroy] 
   end
 
 

@@ -5,4 +5,10 @@ class BlocksController < ApplicationController
     redirect_to celeb_path(@current_celeb.id)
   end
 
+  def destroy
+    @block = Block.find(params[:id])
+    @block.destroy
+    redirect_to celeb_path(@current_celeb.id)
+  end
+
 end
