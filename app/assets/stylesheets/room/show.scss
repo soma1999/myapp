@@ -256,25 +256,53 @@
 .send-form{
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 100vw;
+  height: 60px;
+  width: 50vw;
+}
+
+.price-index{
+  position: relative;
+}
+
+.send-form .money-img{
+  width: 8vw;
+  height: 100%;
+}
+
+.money-index{
+  position: absolute;
+  z-index: 10;
+  top: -200px;
+  background-color:#fffaf0;
+  width: 150px;
+  border-radius: 12px;
+  height: 200px;
+}
+
+.money-index li{
+  margin: 20px 0 20px 20px;
+  font-size: 15px;
 }
 
 .send-form-content{
   resize: none; 
-  width: 35vw;
+  width: 37vw;
   display: inline-block;
   margin: 0 auto;
   padding-left: 10px;
   font-size: 20px; 
   border-radius: 8px;
   line-height: 30px;
-  height: 45px;
+  height: 100%;
 } 
 
 .submit{
   background-color: #7da4cd;;
   border-radius: 20%;
   font-size: 16px;
-  width: 80px;
+  width: 5vw;
 }
 
 .send-form-blue{

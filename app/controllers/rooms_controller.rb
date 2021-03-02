@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
     @celebs = Celeb.all
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
+    @prices = Price.all.order(:id)
 
     if user_signed_in?
       @messages_celeb = @messages.where(celeb_id: @celeb.id)

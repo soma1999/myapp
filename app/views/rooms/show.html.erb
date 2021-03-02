@@ -143,6 +143,16 @@
   </div>
 
   <div class='send-form'>
+    <% if user_signed_in? %>
+      <div class='price-index'>
+        <%= image_tag "money.png",id: "money", class: "money-img" %>
+        <ul class='money-index hidden' id= "money-index">
+          <% @prices.each do |price| %>
+          <li>￥<%= link_to price.content,room_price_orders_path(@room,price), method: :post, data: { confirm:  "本当に購入しますか？"} %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
         <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content" %>
