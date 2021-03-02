@@ -71,3 +71,5 @@ gem 'rails-i18n'
 gem 'ransack'
 
 gem 'payjp'
+
+gem 'gon'
