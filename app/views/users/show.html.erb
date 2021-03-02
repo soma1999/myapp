@@ -7,6 +7,7 @@
       <%= image_tag @user.image, class: 'user-show-img'%>
       <div class='user-name'>
         <%= current_user.nickname %>
+        <%= link_to 'カード情報登録', cards_new_path %>
       </div>
     </div>
     <h2>新着メッセージ</h2>
