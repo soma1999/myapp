@@ -5,18 +5,18 @@ class OrdersController < ApplicationController
 
     @price = Price.find(params[:price_id])
 
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
-    customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
+    customer_token = current_user.card.customer_token 
     Payjp::Charge.create(
-    amount: @price.content, # 商品の値段
-    customer: customer_token, # 顧客のトークン
-    currency: 'jpy' # 通貨の種類（日本円）
+    amount: @price.content, 
+    customer: customer_token, 
+    currency: 'jpy' 
     )
 
     @room = Room.find(params[:room_id])
     @order = Order.create(price_id: @price.id, room_id: @room.id)
-
-    redirect_to room_path(@room)
+    @message = Message.create(room_id: @room.id, user_id: @room.user.id, content:"#{current_user.nickname}さんから#{@price.content}円が送られました!!")
+    ActionCable.server.broadcast 'stanp_channel', content: @message
 
 
   end
