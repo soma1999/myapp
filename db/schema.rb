@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_060131) do
     t.bigint "user_id"
     t.bigint "room_id"
     t.boolean "read", default: false
+    t.boolean "order", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["celeb_id"], name: "index_messages_on_celeb_id"
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_060131) do
     t.string "first_name_katakana", null: false
     t.string "last_name_katakana", null: false
     t.date "birthday", null: false
+    t.boolean "order", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

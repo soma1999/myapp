@@ -12,6 +12,4 @@ class UsersController < ApplicationController
     @card = customer.cards.first
   end
 
-  # def update
-  # end
 end

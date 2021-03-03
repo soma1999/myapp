@@ -14,12 +14,18 @@
       <% @rooms.each do |room| %>
         <% if room.block == nil%>
           <% room.messages.each do |message| %>
-            <% if message.celeb_id == nil%>
+            <% if message.celeb_id == nil %>
               <% unless message.read %>
                 <ul class='user-comment-list-1'> 
                   <li class='user-comment-1'>
-                    <%= image_tag message.user.image, class: 'img1' %>
-                    <%= link_to "#{message.user.nickname}さん", room_path(message.room), class: 'chat-room-name' %>
+                    <% if message.order %>
+                      <p>🌟</p>
+                      <%= image_tag message.user.image, class: 'img1' %>
+                      <%= link_to "#{message.user.nickname}さん", room_path(message.room), class: 'chat-room-name' %>
+                    <% else %>
+                      <%= image_tag message.user.image, class: 'img1', style: "margin-left: 20px;"%>
+                      <%= link_to "#{message.user.nickname}さん", room_path(message.room), class: 'chat-room-name' %>
+                    <% end %>
                   </li>
                 </ul>
               <% end %>
@@ -36,8 +42,14 @@
       <% unless room.block %>
         <ul class='user-comment-list-1'>
           <li class='user-comment-1'>
-            <%= image_tag room.user.image, class: 'img1'%>
-            <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+            <%# <%if room.user.order==true %>
+              <%# <p>🌟</p> %>
+              <%# <%= image_tag room.user.image, class: 'img1'%> %>
+              <%# <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %> %>
+            <%# <% else %> %> %>
+              <%= image_tag room.user.image, class: 'img1'%>
+              <%= link_to "#{room.user.nickname}さんとのトーク", room_path(room), class: 'chat-room-name' %>
+            <%# <% end %> %>
           </li>
         </ul> 
       <% end %>

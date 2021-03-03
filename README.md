@@ -60,6 +60,7 @@
 | celeb   | references | foreign_key: true              |
 | room    | references | null: false, foreign_key: true |
 | read    | boolean    | null: false                    |
+| order   | boolean    | null: false                    |
 
 ### Association
 
