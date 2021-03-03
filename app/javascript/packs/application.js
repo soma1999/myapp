@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("celeb-index");
 require("message-destroy");
+require("../card");
+require("money-index");
 
 
 

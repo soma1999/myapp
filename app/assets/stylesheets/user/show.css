@@ -22,7 +22,7 @@
 .user-show-profile{
   display: flex;
   align-items: center;
-  padding: 30px 0 0 60px;
+  margin: 10px 0 10px 40px;
 }
 
 .user-show-img{
@@ -35,15 +35,29 @@
   margin-left: 20px;
 }
 
+.card-info{
+  margin-left: 40px;
+}
+
+.card-info .Card_title{
+  background-color: #f0f8ff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.Card_info{
+  text-align: center;
+  margin-top: 5px;
+}
+
 .left-bar h2{
-  margin: 30px 0 40px 60px;
   position: relative;
   padding: 0.5em 0.7em;
   background: #e6f4ff;
   color: #5c98d4;
   font-weight: bold;
   font-size: 20px;
-  margin: 2em 0;
+
 }
 
 .left-bar h2:after {

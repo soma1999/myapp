@@ -49,6 +49,7 @@
 - belongs_to :celeb
 - has_many :messages
 - has_one  :block
+- has_many :orders
 
 ## messages テーブル
 
@@ -59,12 +60,14 @@
 | celeb   | references | foreign_key: true              |
 | room    | references | null: false, foreign_key: true |
 | read    | boolean    | null: false                    |
+| order   | boolean    | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :room
 - belongs_to :celeb
+
 
 ## blocks テーブル
 
@@ -74,4 +77,28 @@
 
 ### Association
 
+- belongs_to :room
+
+
+## prices テーブル
+
+| Column    | Type       | Options                        |
+| -------   | ---------- | ------------------------------ |
+| content   |  string    | null: false                    |
+
+### Association
+
+- has_many :orders
+
+
+## orders テーブル
+
+| Column   | Type       | Options                        |
+| ------   | ---------- | ------------------------------ |
+| price    | references | null: false, foreign_key: true |
+| room     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :price
 - belongs_to :room
