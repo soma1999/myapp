@@ -19,7 +19,8 @@ class User < ApplicationRecord
   end
 
   has_many :celebs, through: :rooms
-  has_many :rooms
-  has_many :messages
+  has_many :rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_one :card, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
