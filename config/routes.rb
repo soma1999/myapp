@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'cards/new'
   devise_for :users
   root to: "homes#index" 
-  resources :homes, only: [:index]
+  resources :homes, only: [:index] 
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
 
   resources :users, only:  [:show]
   resources :cards, only: [:new, :create]
