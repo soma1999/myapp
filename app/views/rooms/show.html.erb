@@ -11,6 +11,11 @@
         </div>
 
         <div class="faceicon1">
+          <% if @like %> 
+            <%= link_to "⭐️", room_like_path(@room,@like), method: :delete, class: "star"%>
+          <% else %>
+            <%= link_to "☆", room_likes_path(@room), method: :post, class: "star"%>
+          <% end %>
           <%= image_tag @room.celeb.image, class: 'img1' %>
           <h2 class='name1'><%= @room.celeb.name %>さんとのトーク</h2>
         </div>
@@ -90,13 +95,14 @@
       <% if user_signed_in? %>
         <% if message.user_id == current_user.id %>
           <div class="mycomment" >
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete%>
             <%= message.read ? '既読' : '  '%>
             <%= l message.created_at, format: :short%>
             <p id= 'mycomment' class='my'><%= message.content %></p>
           </div>
-          <div class='destroy-btn hidden' id='destroy'>
-            <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
-          </div>
+          <%# <div class='destroy-btn hidden' id='destroy'> %>
+            <%# <p><%= link_to '削除する', room_message_path(@room,message), method: :delete</p>  %>
+          <%# </div> %>
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">
@@ -115,13 +121,14 @@
       <% else %>
         <% if message.celeb_id == @current_celeb.id %>
           <div class="mycomment">
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete %>
             <%= message.read ? '既読' : '  ' %>
             <%= l message.created_at, format: :short %>
             <p id= 'mycomment'><%= message.content %></p>
           </div>
-          <div class='destroy-btn hidden' id='destroy'>
-            <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
-          </div>
+          <%# <div class='destroy-btn hidden' id='destroy'> %>
+            <%# <p><%= link_to '削除する', room_message_path(@room,message), method: :delete</p>  %>
+          <%# </div> %>
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">

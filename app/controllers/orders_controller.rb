@@ -16,8 +16,9 @@ class OrdersController < ApplicationController
     @room = Room.find(params[:room_id])
     @order = Order.create(price_id: @price.id, room_id: @room.id)
     @message = Message.create(room_id: @room.id, user_id: @room.user.id, content:"#{current_user.nickname}さんから#{@price.content}円が送られました!!", order: true)
-    # @user = User.find(current_user.id)
-    # @user.update(order: true)
+    @user = User.find(current_user.id)
+    @user.update(order: true)
+    binding.pry
     ActionCable.server.broadcast 'stanp_channel', content: @message
 
 

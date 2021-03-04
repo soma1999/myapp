@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :prices, only: [:create] do
       resources :orders, only: [:create]
     end
+
+    resources :likes, only: [:create, :destroy]
   end
 
   

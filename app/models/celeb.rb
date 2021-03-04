@@ -13,7 +13,7 @@ class Celeb < ApplicationRecord
 
 
   has_many :users, through: :rooms
-  has_many :rooms 
-  has_many :messages
+  has_many :rooms , dependent: :destroy
+  has_many :messages, dependent: :destroy
   
 end
