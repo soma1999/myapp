@@ -11,6 +11,11 @@
         </div>
 
         <div class="faceicon1">
+          <% if @like %> 
+            <%= link_to "⭐️", room_like_path(@room,@like), method: :delete, class: "star"%>
+          <% else %>
+            <%= link_to "☆", room_likes_path(@room), method: :post, class: "star"%>
+          <% end %>
           <%= image_tag @room.celeb.image, class: 'img1' %>
           <h2 class='name1'><%= @room.celeb.name %>さんとのトーク</h2>
         </div>
@@ -90,20 +95,11 @@
       <% if user_signed_in? %>
         <% if message.user_id == current_user.id %>
           <div class="mycomment" >
-<<<<<<< Updated upstream
-=======
             <%= link_to '削除する', room_message_path(@room,message), method: :delete, class: "delete-btn hidden", id: "destroy"%>
->>>>>>> Stashed changes
             <%= message.read ? '既読' : '  '%>
             <%= l message.created_at, format: :short%>
             <p id= 'mycomment' class='my'><%= message.content %></p>
           </div>
-<<<<<<< Updated upstream
-          <div class='destroy-btn hidden' id='destroy'>
-            <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
-          </div>
-=======
->>>>>>> Stashed changes
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">
@@ -122,16 +118,11 @@
       <% else %>
         <% if message.celeb_id == @current_celeb.id %>
           <div class="mycomment">
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete %>
             <%= message.read ? '既読' : '  ' %>
             <%= l message.created_at, format: :short %>
             <p id= 'mycomment'><%= message.content %></p>
           </div>
-<<<<<<< Updated upstream
-          <div class='destroy-btn hidden' id='destroy'>
-            <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
-          </div>
-=======
->>>>>>> Stashed changes
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">
@@ -153,6 +144,16 @@
   </div>
 
   <div class='send-form'>
+    <% if user_signed_in? %>
+      <div class='price-index'>
+        <%= image_tag "money.png",id: "money", class: "money-img" %>
+        <ul class='money-index hidden' id= "money-index">
+          <% @prices.each do |price| %>
+          <li>￥<%= link_to price.content,room_price_orders_path(@room,price), method: :post, data: { confirm:  "本当に購入しますか？"} %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
         <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content" %>

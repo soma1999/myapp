@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, :birthday, presence: true  
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, allow_nil: true
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
     validates :first_name
@@ -19,6 +19,8 @@ class User < ApplicationRecord
   end
 
   has_many :celebs, through: :rooms
-  has_many :rooms
-  has_many :messages
+  has_many :rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_one :card, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end

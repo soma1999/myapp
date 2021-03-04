@@ -4,25 +4,20 @@
   height: 500px;
 }
 
+/* left-bar */
+
 .left-bar{
   width: 35vw;
   background-color:  #00bfff;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-
-.right-bar{
-  width: 65vw;
-  background-color: #87cefa;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  flex-wrap: wrap;
+  border-radius: 18px;
 }
 
 .user-show-profile{
   display: flex;
   align-items: center;
-  padding: 30px 0 0 60px;
+  margin: 10px 0 10px 40px;
 }
 
 .user-show-img{
@@ -35,15 +30,29 @@
   margin-left: 20px;
 }
 
+.card-info{
+  margin-left: 40px;
+}
+
+.card-info .Card_title{
+  background-color: #f0f8ff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.Card_info{
+  text-align: center;
+  margin-top: 5px;
+}
+
 .left-bar h2{
-  margin: 30px 0 40px 60px;
   position: relative;
   padding: 0.5em 0.7em;
   background: #e6f4ff;
   color: #5c98d4;
   font-weight: bold;
   font-size: 20px;
-  margin: 2em 0;
+  border-radius: 18px;
 }
 
 .left-bar h2:after {
@@ -57,7 +66,19 @@
   height: 0;
 }
 
-.chat-history{
+
+/* center-bar */
+
+.center-bar{
+  width: 35vw;
+  background-color: #87cefa;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  border-radius: 18px;
+}
+
+.center-bar h2{
   position: relative;
   padding: 0.5em 0.7em;
   margin: 2em 0;
@@ -65,9 +86,10 @@
   color: #5c98d4;
   font-weight: bold;
   font-size: 20px;
+  border-radius: 18px;
 }
 
-.chat-history:after {
+.center-bar h2:after {
   position: absolute;
   content: '';
   top: 100%;
@@ -76,28 +98,6 @@
   border-top: 15px solid #e6f4ff;
   width: 0;
   height: 0;
-}
-
-.celeb-show-main{
-  width: 100%;
-  background-color: #66cfff;
-  background-size: cover;
-  padding: 5vh 20vw;
-  height: 500px;
-}
-
-.celeb-show-content{
-  margin-bottom: 50px;
-}
-
-.celeb-profile{
-  display: flex;
-}
-
-.celeb-show-name{
-  margin-left: 30px;
-  font-size: 30px;
-  padding-top: 30px;
 }
 
 .user-comment-list{
@@ -117,4 +117,34 @@
 .chat-room-name:hover{
   color: blue;
   text-decoration:underline;
+}
+
+/* right-bar */
+
+.right-bar{
+  width: 30vw;
+  background-color: #66cfff;
+  border-radius: 18px;
+}
+
+.right-bar h2{
+  position: relative;
+  padding: 0.5em 0.7em;
+  background: #e6f4ff;
+  color: #5c98d4;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 2em 0;
+  border-radius: 18px;
+}
+
+.right-bar  h2:after{
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e6f4ff;
+  width: 0;
+  height: 0;
 }

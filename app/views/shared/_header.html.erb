@@ -24,6 +24,7 @@
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:"login" %>
       <% else %>
         <h1>一般ユーザーの方はこちら</h1>
+        <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"login" %>
         <%= link_to '新規登録', new_user_registration_path , class:"login" %>
         <%= link_to 'ログイン', user_session_path, method: :post, class: "login" %>
       <% end %>

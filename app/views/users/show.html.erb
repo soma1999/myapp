@@ -8,6 +8,23 @@
       <div class='user-name'>
         <%= current_user.nickname %>
       </div>
+      <div class="card-info">
+        <% unless @card %>
+            <%= link_to 'カード情報登録', cards_new_path %>
+        <% end %>
+        <div class="Card_title">
+          <p>○カード情報</p>
+        </div>
+        <div class="Card_info">
+          【カード番号】
+          <br>
+            <%= "**** **** **** " + @card[:last4] %>
+          <br>
+          【有効期限】
+          <br>
+            <%= @card[:exp_month] %>/<%= @card[:exp_year] %>
+        </div>
+      </div>
     </div>
     <h2>新着メッセージ</h2>
     <div class="user-comments">
@@ -28,7 +45,7 @@
     </div>
   </div>
 
-  <div class='right-bar'>
+  <div class='center-bar'>
     <h2 class='chat-history'>トーク履歴</h2>
     <% @rooms.each do |room| %>
       <% unless room.messages.blank? %>
@@ -39,6 +56,18 @@
           </li>
         </ul>
       <% end %>
+    <% end %>
+  </div>
+
+  <div class='right-bar'>
+    <h2 class='like-celebs'>お気に入り</h2>
+    <% @likes.each do |like| %>
+      <ul class='user-comment-list'>
+        <li class='user-comment'>
+          <%= image_tag like.room.celeb.image, class: 'img1'%>
+          <%= link_to "#{like.room.celeb.name}さんとのトーク", room_path(like.room), class: 'chat-room-name' %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div> 

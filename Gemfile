@@ -69,3 +69,7 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 
 gem 'ransack'
+
+gem 'payjp'
+
+gem 'gon'
