@@ -90,13 +90,20 @@
       <% if user_signed_in? %>
         <% if message.user_id == current_user.id %>
           <div class="mycomment" >
+<<<<<<< Updated upstream
+=======
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete, class: "delete-btn hidden", id: "destroy"%>
+>>>>>>> Stashed changes
             <%= message.read ? '既読' : '  '%>
             <%= l message.created_at, format: :short%>
             <p id= 'mycomment' class='my'><%= message.content %></p>
           </div>
+<<<<<<< Updated upstream
           <div class='destroy-btn hidden' id='destroy'>
             <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
           </div>
+=======
+>>>>>>> Stashed changes
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">
@@ -119,9 +126,12 @@
             <%= l message.created_at, format: :short %>
             <p id= 'mycomment'><%= message.content %></p>
           </div>
+<<<<<<< Updated upstream
           <div class='destroy-btn hidden' id='destroy'>
             <p><%= link_to '削除する', room_message_path(@room,message), method: :delete %></p>
           </div>
+=======
+>>>>>>> Stashed changes
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">

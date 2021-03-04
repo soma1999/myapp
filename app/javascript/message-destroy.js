@@ -1,19 +1,18 @@
 function pullDown(){
   
-  const myComment = document.getElementById("mycomment")
-  // const pullDownParent = document.querySelectorAll(".destroy-btn")
-  const pullDownChild = document.querySelectorAll(".my")
+  const myComment = document.querySelectorAll(".my")
 
-  pullDownChild.forEach(function(list) {
+  myComment.forEach(function(list) {
 
   list.addEventListener('click', function(){
-    const pullDownParent = document.getElementById("destroy")
-    debugger
-    if (pullDownParent.getAttribute("style") == "display:block;"){
-      pullDownParent.removeAttribute("style", "display:block;")
-    } else {
-      pullDownParent.setAttribute("style", "display:block;")
-    }
+    // const pullDownParent = document.getElementById("destroy")
+    // if (pullDownParent.getAttribute("style") == "display:block;"){
+    //   pullDownParent.removeAttribute("style", "display:block;")
+    // } else {
+    //   pullDownParent.setAttribute("style", "display:block;")
+    // }
+    const deleteButton = list.parentNode.querySelector(".delete-btn")
+    deleteButton.classList.toggle("hidden")
     
   })
   })
