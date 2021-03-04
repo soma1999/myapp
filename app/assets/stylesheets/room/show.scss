@@ -43,6 +43,13 @@
   background-color: #fffaf0;
   border-radius: 5px;
   padding-left: 220px;
+} 
+.faceicon1 .star{
+  margin-right: 10px;
+  font-size: 30px;
+}
+.faceicon1 .star:link{
+  text-decoration: none;
 }
 .img1{
   width: 40px;
@@ -228,30 +235,6 @@
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
-
-.destroy-btn{
-  position: absolute;
-  z-index: 10;
-  margin-left: 500px;
-}
-
-.destroy-btn p{
-  position: relative;
-  width: 100px;
-  height: 35px;
-  background-color: #d3d3d3;
-  border-radius: 12px;
-  z-index: 10;
-  text-align: center;
-  line-height: 35px;
-}
-.destroy-btn p:after{
-  content: "";
-  position: absolute;
-
-}
-
-
 
 .send-form{
   display: flex;
