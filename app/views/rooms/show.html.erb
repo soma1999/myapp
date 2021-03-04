@@ -95,14 +95,11 @@
       <% if user_signed_in? %>
         <% if message.user_id == current_user.id %>
           <div class="mycomment" >
-            <%= link_to '削除する', room_message_path(@room,message), method: :delete%>
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete, class: "delete-btn hidden", id: "destroy"%>
             <%= message.read ? '既読' : '  '%>
             <%= l message.created_at, format: :short%>
             <p id= 'mycomment' class='my'><%= message.content %></p>
           </div>
-          <%# <div class='destroy-btn hidden' id='destroy'> %>
-            <%# <p><%= link_to '削除する', room_message_path(@room,message), method: :delete</p>  %>
-          <%# </div> %>
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">
@@ -126,9 +123,6 @@
             <%= l message.created_at, format: :short %>
             <p id= 'mycomment'><%= message.content %></p>
           </div>
-          <%# <div class='destroy-btn hidden' id='destroy'> %>
-            <%# <p><%= link_to '削除する', room_message_path(@room,message), method: :delete</p>  %>
-          <%# </div> %>
         <% else %>
           <div class="fukidasi">
             <div class="faceicon">

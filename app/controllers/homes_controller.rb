@@ -13,6 +13,7 @@ class HomesController < ApplicationController
       user.first_name_katakana = "ヤマダ"
       user.last_name_katakana = "タロウ"
       user.birthday = "1999-12-13"
+      user.image.attach(io: File.open('public/images/default-image.png'), filename: 'default-image.png')
 
     end
     sign_in user
