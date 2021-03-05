@@ -7,24 +7,37 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     if current_user
       @message = Message.new(user_comment_params)
-      if @message.save
-        ActionCable.server.broadcast 'message_channel', content: @message
-      else
-        @messages = Message.where(room_id: @room).order("created_at ASC")
-        @celebs = Celeb.all
-        @results = @p.result
-        render template: "rooms/show"
+      respond_to do |format| 
+        if @message.save
+          ActionCable.server.broadcast 'message_channel', content: @message
+          format.html { redirect_to room_path(@room) } 
+          format.json { render template: "rooms/show", status: :created, location: @room } 
+          format.js 
+        else
+          @messages = Message.where(room_id: @room).order("created_at ASC")
+          @celebs = Celeb.all
+          @results = @p.result
+          @prices = Price.all
+          format.html { render template: "rooms/show"} 
+          format.json { render json: @message.errors, status: :unprocessable_entity } 
+        end
       end
     else
       @message = Message.new(celeb_comment_params)
-      if @message.save
-        ActionCable.server.broadcast 'message_channel', content: @message
-      else
-        @messages = Message.where(room_id: @room).order("created_at ASC")
-        @celebs = Celeb.all
-        @results = @p.result
-        render template: "rooms/show"
-      end
+      # respond_to do |format| 
+        if @message.save
+          ActionCable.server.broadcast 'message_channel', content: @message
+          # format.html { redirect_to room_path(@room) } 
+          # format.json { render template: "rooms/show", status: :created, location: @message } 
+          # format.js 
+        else
+          @messages = Message.where(room_id: @room).order("created_at ASC")
+          @celebs = Celeb.all
+          @results = @p.result
+          format.html { render template: "rooms/show" } 
+          format.json { render json: @message.errors, status: :unprocessable_entity } 
+        end
+      # end
     end
   end
 

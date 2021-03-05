@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
     @user.update(order: true)
     ActionCable.server.broadcast 'stanp_channel', content: @message
 
-
   end
 
 end

@@ -15,7 +15,7 @@ consumer.subscriptions.create("MessageChannel", {
     const day = ("0"+today.getDay()).slice(-2);
     const hours = today.getHours();
     const minutes = ("0"+today.getMinutes()).slice(-2);
-    const html = `<div class="mycomment" >${month}/${day} ${hours}:${minutes} <p>${data.content.content}</p></div>`;
+    const html = `<div class="mycomment" ><a href= "/rooms/${data.content.room_id}/messages/${data.content.id}" class="delete-btn hidden" rel="nofollow">削除する</a>${month}/${day} ${hours}:${minutes} <p>${data.content.content}</p></div>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('message_content')
     const messageButton = document.getElementById('message-button')

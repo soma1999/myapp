@@ -98,7 +98,7 @@
             <%= link_to '削除する', room_message_path(@room,message), method: :delete, class: "delete-btn hidden", id: "destroy"%>
             <%= message.read ? '既読' : '  '%>
             <%= l message.created_at, format: :short%>
-            <p id= 'mycomment' class='my'><%= message.content %></p>
+            <p class='my'><%= message.content %></p>
           </div>
         <% else %>
           <div class="fukidasi">
@@ -118,7 +118,7 @@
       <% else %>
         <% if message.celeb_id == @current_celeb.id %>
           <div class="mycomment">
-            <%= link_to '削除する', room_message_path(@room,message), method: :delete %>
+            <%= link_to '削除する', room_message_path(@room,message), method: :delete, class: "delete-btn hidden", id: "destroy"%>
             <%= message.read ? '既読' : '  ' %>
             <%= l message.created_at, format: :short %>
             <p id= 'mycomment'><%= message.content %></p>

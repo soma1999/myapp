@@ -5,11 +5,10 @@ function pullDown(){
   myComment.forEach(function(list) {
 
   list.addEventListener('click', function(){
-    // const pullDownParent = document.getElementById("destroy")
-    // if (pullDownParent.getAttribute("style") == "display:block;"){
-    //   pullDownParent.removeAttribute("style", "display:block;")
-    // } else {
-    //   pullDownParent.setAttribute("style", "display:block;")
+    
+    // if(list.parentNode.querySelector(".hidden") == null){
+      const deleteButtons = document.querySelectorAll(".delete-btn")
+      deleteButtons.forEach(button => button.classList.add("hidden") )
     // }
     const deleteButton = list.parentNode.querySelector(".delete-btn")
     deleteButton.classList.toggle("hidden")
@@ -19,3 +18,5 @@ function pullDown(){
 }
 
 document.addEventListener("turbolinks:load", pullDown)
+
+
