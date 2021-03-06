@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+
 <div class= 'admin'>
     <% if user_signed_in? && current_user.admin?  %>
       <%= link_to '有名人の作成', new_celeb_path %>
@@ -68,41 +69,25 @@
     
     <div class= 'celebs-index'>
       <ul class='celebs-lists'>
-
-        <% if user_signed_in? %>
-
-            <% @celebs.each do |celeb| %>
-              <li class='list'>
-                  <div class="celeb-contents">
-                    <%= image_tag celeb.image, class: "celeb-image" %>
-                    <div class="celeb-content">
-                      <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post,class: 'celeb-name'  %>
-                      <p class="celeb-description">
-                        <%= celeb.description%>
-                      </p>
-                    </div>
-                  </div>
-              </li>
-            <% end %>
-  
-        <% else %>
-
-            <% @celebs.each do |celeb| %>
-              <li class='list'>
-                  <div class="celeb-contents">
-                    <%= image_tag celeb.image, class: "celeb-image" %>
-                    <div class="celeb-content">
-                      <%= celeb.name %>
-                      <p class="celeb-description">
-                        <%= celeb.description%>
-                      </p>
-                    </div>
-                  </div>
-              </li>   
-            <% end %>
-      
-        <% end %>
+        <% @celebs.each do |celeb| %>
+          <li class='list'>
+            <div class="celeb-contents">
+              <%= image_tag celeb.image, class: "celeb-image" %>
+                <div class="celeb-content">
+                  <% if user_signed_in? %>
+                    <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post,class: 'celeb-name'  %>
+                  <% else %>
+                    <%= celeb.name %>
+                  <% end %>
+                  <p class="celeb-description">
+                    <%= celeb.description%>
+                  </p>
+                </div>
+            </div>
+          </li>
+        <% end %>  
       </ul>
+      <%= paginate @celebs %>
     </div>
   </div>
 
