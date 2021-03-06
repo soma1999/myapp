@@ -73,3 +73,7 @@ gem 'ransack'
 gem 'payjp'
 
 gem 'gon'
+
+gem 'kaminari'
+
+
