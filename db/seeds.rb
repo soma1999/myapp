@@ -10,20 +10,20 @@
 #   admin: true
 #   )
 
-  # 10.times do |n|
-  #   name = Faker::Japanese::Name.name
-  #   email = Faker::Internet.email
-  #   password = "111111a"
-  #   description = "これは架空の人物です。生年月日・年齢・国籍・経歴：いずれも不明。素性については多くの仮説が立てられているが、正確なところはわかっていない。"
+  20.times do |n|
+    name = Faker::Japanese::Name.name
+    email = Faker::Internet.email
+    password = "111111a"
+    description = "これは架空の人物です。生年月日・年齢・国籍・経歴：いずれも不明。素性については多くの仮説が立てられているが、正確なところはわかっていない。"
 
-  #   celeb = Celeb.create(
-  #     name: name,
-  #     email: email,
-  #     password: password,
-  #     description: description,
-  #   )
-  #   celeb.image.attach(io: File.open('public/images/image.png'), filename: 'image.png')
-  # end
+    celeb = Celeb.create(
+      name: name,
+      email: email,
+      password: password,
+      description: description,
+    )
+    celeb.image.attach(io: File.open('public/images/image.png'), filename: 'image.png')
+  end
 
 
 
