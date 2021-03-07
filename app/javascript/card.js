@@ -1,24 +1,24 @@
 const pay = () => {
-  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); // 環境変数を読み込む
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); 
   const form = document.getElementById("charge-form"); 
-  form.addEventListener("submit", (e) => { // イベント発火
+  form.addEventListener("submit", (e) => { 
     e.preventDefault();
 
   const formResult = document.getElementById("charge-form");
   const formData = new FormData(formResult);
 
-  const card = { // カードオブジェクトを生成
-      number: formData.get("number"),              // カード番号
-      cvc: formData.get("cvc"),                    // カード裏面の3桁の数字
-      exp_month: formData.get("exp_month"),        // 有効期限の月
-      exp_year: `20${formData.get("exp_year")}`,   // 有効期限の年
+  const card = { 
+      number: formData.get("number"),     
+      cvc: formData.get("cvc"),           
+      exp_month: formData.get("exp_month"),        
+      exp_year: `20${formData.get("exp_year")}`,   
     };
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
         const token = response.id;
-        const renderDom = document.getElementById("charge-form");   //idを元に要素を取得
-        const tokenObj = `<input value=${token} name='card_token' type="hidden">`;   //paramsの中にトークンを含める
-        renderDom.insertAdjacentHTML("beforeend", tokenObj);  //フォームの一番最後に要素を追加
+        const renderDom = document.getElementById("charge-form");  
+        const tokenObj = `<input value=${token} name='card_token' type="hidden">`;   
+        renderDom.insertAdjacentHTML("beforeend", tokenObj);  
 
         document.getElementById("number").removeAttribute("name");
         document.getElementById("cvc").removeAttribute("name");
@@ -26,8 +26,13 @@ const pay = () => {
         document.getElementById("exp_year").removeAttribute("name");
 
         document.getElementById("charge-form").submit();
-      }   
+      }
+      else{
+        location.href="/cards/new";
+        alert("登録に失敗しました");
+      }
     });
   });
+  
 };
 document.addEventListener("turbolinks:load", pay)
