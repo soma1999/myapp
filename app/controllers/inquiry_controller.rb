@@ -1,29 +1,29 @@
 class InquiryController < ApplicationController
   def index
-    # 入力画面を表示
     @inquiry = Inquiry.new
-    render :action => 'index'
   end
 
   def confirm
-    # 入力値のチェック
-    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
+    inquiry_new
     if @inquiry.valid?
-      # OK。確認画面を表示
-      render :action => 'confirm'
+      render :confirm
     else
-      # NG。入力画面を再表示
-      render :action => 'index'
+      render :index
     end
   end
 
   def thanks
-    # メール送信
-    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))    
+    inquiry_new
     InquiryMailer.received_email(@inquiry).deliver
-
-    # 完了画面を表示
-    render :action => 'thanks'
+    render :thanks
   end
 
+  private 
+  def confirm_parameter
+    params.require(:inquiry).permit(:name,:email,:message)
+  end
+
+  def inquiry_new
+    @inquiry = Inquiry.new(confirm_parameter)
+  end
 end
