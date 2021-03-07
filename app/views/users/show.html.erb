@@ -65,7 +65,7 @@
       <ul class='user-comment-list'>
         <li class='user-comment'>
           <%= image_tag like.room.celeb.image, class: 'img1'%>
-          <%= link_to "#{like.room.celeb.name}さんとのトーク", room_path(like.room), class: 'chat-room-name' %>
+          <%= link_to "#{like.room.celeb.name}さん", room_path(like.room), class: 'chat-room-name' %>
         </li>
       </ul>
     <% end %>
