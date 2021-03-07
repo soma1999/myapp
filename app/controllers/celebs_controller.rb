@@ -1,7 +1,7 @@
 class CelebsController < ApplicationController
+  before_action :celeb_new, only: [:new, :new_second]
 
   def new
-    @celeb = Celeb.new
   end
 
   def create
@@ -17,10 +17,18 @@ class CelebsController < ApplicationController
     @celeb = Celeb.find(params[:id])
     @rooms = Room.where(celeb_id: @celeb.id).order("created_at DESC")
     @blocks = Block.where(room_id: @celeb.rooms)
+    @total_price = 0
+
+    @rooms.each do |room|
+      @room_orders = room.orders
+      @room_orders.each do |room_order|
+        @order_price = room_order.price.content.to_i
+        @total_price += @order_price
+      end
+    end
   end
 
   def new_second
-    @celeb = Celeb.new
   end
 
   def destroy
@@ -43,5 +51,9 @@ class CelebsController < ApplicationController
 
   def celebs_parameter
     params.require(:celeb).permit(:name,:email,:password,:description,:image)
+  end
+
+  def celeb_new
+    @celeb = Celeb.new
   end
 end
