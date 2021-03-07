@@ -5,4 +5,5 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one  :block, dependent: :destroy
   has_one  :like, dependent: :destroy
+  has_many :orders
 end

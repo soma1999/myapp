@@ -1,12 +1,15 @@
 <%= render "shared/header" %>
 
 <div class='user-show-main-1'>
-
   <div class='left-bar-1'>
     <div class='user-show-profile-1'>
       <%= image_tag @celeb.image, class: 'user-show-img-1'%>
       <div class='user-name-1'>
         <%= @celeb.name %>
+      </div>
+      <div class="total-price">
+        <p class="title">🌟もらったお金🌟</p>
+        <p class="price">￥<%= @total_price%></p>
       </div>
     </div>
     <h2>新着メッセージ</h2>
@@ -37,7 +40,7 @@
   </div>
 
   <div class='right-bar-1'>
-    <h2 class='chat-history-1'>トーク履歴</h2>
+    <h2>トーク履歴</h2>
     <% @rooms.each do |room| %>
       <% unless room.block %>
         <ul class='user-comment-list-1'>
@@ -58,7 +61,7 @@
 
 
   <div class='block-user-1'>
-    <h2 class='chat-history-1'>ブロックユーザー</h2>
+    <h2>ブロックユーザー</h2>
     <% @blocks.each do |block| %>
       <ul class='user-comment-list-1'>
         <li class='user-comment-1'>
