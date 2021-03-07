@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @celebs = Celeb.all.order("created_at DESC").page(params[:page])
+    @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(24)
   end
 
   def new_guest
