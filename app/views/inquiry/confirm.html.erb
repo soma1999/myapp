@@ -1,0 +1,20 @@
+<%= render "shared/second-header" %>
+
+<%= form_for @inquiry, :url => thanks_inquiry_index_path do |f| %>
+  <div class= "inquiry-form">
+    <div class='container'>
+      <div class="head">
+        <h2>お問い合わせ</h2>
+      </div>
+      <%= f.text_field :name, value: @inquiry.name, class:"text",placeholder: "Name"%>
+      <br/>
+      <%= f.text_field :email, value: @inquiry.email, class: "text",placeholder: "Email" %>
+      <br/>
+      <%= f.text_area :message, value: @inquiry.message, class: "text area", placeholder: "Message" %>
+      <br/>
+      <%= f.submit '送信', class: 'btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shared/second-footer" %>

@@ -50,7 +50,7 @@
                     <%= link_to result.name, celeb_rooms_path(result), method: :post, class: 'chat-room-name' %>
                   </li>
                 <% end %>
-                <% @celebs.each do |celeb| %>
+                <% @celebs_max.each do |celeb| %>
                   <li>
                     <%= image_tag celeb.image, class: 'img1' %>
                     <%= link_to celeb.name, celeb_rooms_path(celeb), method: :post, class: 'chat-room-name' %>
@@ -157,7 +157,7 @@
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
         <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content" %>
-        <%= f.submit '送信', class: "submit ", id: 'message-button'%>
+        <%= f.submit 'SEND', class: "submit ", id: 'message-button'%>
       </div>
     <% end %>
   </div>

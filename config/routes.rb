@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'cards/new'
   devise_for :users
   root to: "homes#index" 
   resources :homes, only: [:index] 
@@ -22,13 +20,16 @@ Rails.application.routes.draw do
     get 'search', to: 'searches#search'
     resources :blocks, only: [:create, :destroy]
     resources :messages, only: [:create, :destroy] 
-
     resources :prices, only: [:create] do
       resources :orders, only: [:create]
     end
-
     resources :likes, only: [:create, :destroy]
   end
 
-  
+  resources :inquiry, only: [:index] do
+    collection do
+      post 'confirm'
+      post 'thanks'
+    end
+  end
 end

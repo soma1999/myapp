@@ -1,0 +1,12 @@
+.thank{
+  text-align: center;
+}
+.thank h2{
+  margin-bottom: 20px;
+}
+.thank p{
+  text-height: 15px;
+}
+.thank span{
+  color: blue;
+}

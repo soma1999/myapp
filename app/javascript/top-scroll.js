@@ -10,9 +10,9 @@
 // });
 
 // $(document).on("turbolinks:load", function() {
-//   if ($("nav.pagination a[rel=next]").length){
+//   if ($(".pagination a[rel=next]").length){
 //     $('.famous-index').infiniteScroll({
-//     path: "nav.pagination a[rel=next]"
+//     path: ".pagination a[rel=next]"
 //     append: ".celebs-lists"
 //     history: false
 //     prefill: true
