@@ -4,31 +4,32 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-    <% unless user_signed_in? %>
-      
-      <% if @current_celeb %>
-        <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete,class:"login" %>
-        <%= link_to 'マイページ', celeb_path(@current_celeb), class: "login"%>
-      <% else  %> 
-        <h1>有名人の方はこちら</h1>
-        <%= link_to 'ログイン', new_second_celebs_path,class:"login" %>
+      <% if user_signed_in? || @current_celeb %>
+        <%= link_to 'お問い合わせはこちら', inquiry_index_path, class: 'login' %>
       <% end %>
-    <% end %>
+      <% unless user_signed_in? %>
+        <% if @current_celeb %>
+          <%= link_to 'ログアウト', celeb_path(@current_celeb), method: :delete,class:"login" %>
+          <%= link_to 'マイページ', celeb_path(@current_celeb), class: "login"%>
+        <% else  %> 
+          <h1>有名人の方はこちら</h1>
+          <%= link_to 'ログイン', new_second_celebs_path,class:"login" %>
+        <% end %>
+      <% end %>
     </ul> 
     <ul class='lists-right'>
-    <% unless @current_celeb %>
-      
-      <% if user_signed_in?%>
-        <%= "こんにちは、#{current_user.nickname}さん"%>
-        <%= link_to 'マイページ', user_path(current_user.id) , class:"login" %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:"login" %>
-      <% else %>
-        <h1>一般ユーザーの方はこちら</h1>
-        <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"login" %>
-        <%= link_to '新規登録', new_user_registration_path , class:"login" %>
-        <%= link_to 'ログイン', user_session_path, method: :post, class: "login" %>
+      <% unless @current_celeb %>  
+        <% if user_signed_in?%>
+          <%= "こんにちは、#{current_user.nickname}さん"%>
+          <%= link_to 'マイページ', user_path(current_user.id) , class:"login" %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:"login" %>
+        <% else %>
+          <h1>一般ユーザーの方はこちら</h1>
+          <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"login" %>
+          <%= link_to '新規登録', new_user_registration_path , class:"login" %>
+          <%= link_to 'ログイン', user_session_path, method: :post, class: "login" %>
+        <% end %>
       <% end %>
-    <% end %>
     </ul>
   </div>
 </header>
