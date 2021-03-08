@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :room_set, only: [:create, :destroy]
 
   def create
     room_set

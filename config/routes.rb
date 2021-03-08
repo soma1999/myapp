@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "homes#index" 
-  resources :homes, only: [:index] 
-  post '/homes/guest_sign_in', to: 'homes#new_guest'
+  resources :homes, only: [:index] do
+    collection do
+      post 'new_guest_user'
+      post 'new_guest_celeb'
+    end
+  end
 
   resources :users, only:  [:show]
   resources :cards, only: [:new, :create]
@@ -32,4 +36,5 @@ Rails.application.routes.draw do
       post 'thanks'
     end
   end
+
 end
