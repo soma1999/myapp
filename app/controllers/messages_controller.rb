@@ -7,34 +7,20 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     if current_user
       @message = Message.new(user_comment_params)
-      respond_to do |format| 
         if @message.save
           ActionCable.server.broadcast 'message_channel', content: @message
-          format.html { redirect_to room_path(@room) } 
-          format.json { render template: "rooms/show", status: :created, location: @room } 
-          format.js 
         else
           message_render_set
           @prices = Price.all
           @celebs_max = Celeb.all
-          format.html { render template: "rooms/show"} 
-          format.json { render json: @message.errors, status: :unprocessable_entity } 
         end
-      end
     else
       @message = Message.new(celeb_comment_params)
-      # respond_to do |format| 
         if @message.save
           ActionCable.server.broadcast 'message_channel', content: @message
-          # format.html { redirect_to room_path(@room) } 
-          # format.json { render template: "rooms/show", status: :created, location: @message } 
-          # format.js 
         else
           message_render_set
-          format.html { render template: "rooms/show" } 
-          format.json { render json: @message.errors, status: :unprocessable_entity } 
         end
-      # end
     end
   end
 
