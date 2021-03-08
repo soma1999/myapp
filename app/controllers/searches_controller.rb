@@ -9,6 +9,8 @@ class SearchesController < ApplicationController
     @celebs = Celeb.all
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
+    @prices = Price.all
+    @celebs_max = @celebs-@results
     render template: "rooms/show"
   end
 
