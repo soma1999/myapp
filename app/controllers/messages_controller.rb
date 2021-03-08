@@ -14,10 +14,9 @@ class MessagesController < ApplicationController
           format.json { render template: "rooms/show", status: :created, location: @room } 
           format.js 
         else
-          @messages = Message.where(room_id: @room).order("created_at ASC")
-          @celebs = Celeb.all
-          @results = @p.result
+          message_render_set
           @prices = Price.all
+          @celebs_max = Celeb.all
           format.html { render template: "rooms/show"} 
           format.json { render json: @message.errors, status: :unprocessable_entity } 
         end
@@ -31,9 +30,7 @@ class MessagesController < ApplicationController
           # format.json { render template: "rooms/show", status: :created, location: @message } 
           # format.js 
         else
-          @messages = Message.where(room_id: @room).order("created_at ASC")
-          @celebs = Celeb.all
-          @results = @p.result
+          message_render_set
           format.html { render template: "rooms/show" } 
           format.json { render json: @message.errors, status: :unprocessable_entity } 
         end
@@ -59,6 +56,12 @@ class MessagesController < ApplicationController
 
   def search_celeb
     @p = Celeb.ransack(params[:q])
+  end
+
+  def message_render_set
+    @messages = Message.where(room_id: @room).order("created_at ASC")
+    @celebs = Celeb.all
+    @results = @p.result
   end
 
 end

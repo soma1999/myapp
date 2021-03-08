@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
     @results = @p.result
     @room = Room.find(params[:id])
     @celeb = Celeb.find(@room.celeb_id)
-    @celebs = Celeb.all
+    @celebs_max = Celeb.all
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
     @prices = Price.all.order(:id)
