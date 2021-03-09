@@ -12,7 +12,7 @@ require("message-destroy");
 require("../card");
 require("money-index");
 require('jquery');
-require('../infinite-scroll.pkgd.min');
+// require('../infinite-scroll.pkgd.min');
 require("top-scroll");
 
 
