@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+        :recoverable, :rememberable, :validatable,omniauth_providers: [:facebook, :google_oauth2]
 
   validates :nickname, :birthday, presence: true  
 
@@ -23,5 +23,5 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :likes, dependent: :destroy
-
+  has_many :sns_credentials
 end
