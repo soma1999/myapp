@@ -7,20 +7,20 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     if current_user
       @message = Message.new(user_comment_params)
-        if @message.save
-          ActionCable.server.broadcast 'message_channel', content: @message
-        else
-          message_render_set
-          @prices = Price.all
-          @celebs_max = Celeb.all
-        end
+      if @message.save
+        ActionCable.server.broadcast 'message_channel', content: @message
+      else
+        message_render_set
+        @prices = Price.all
+        @celebs_max = Celeb.all
+      end
     else
       @message = Message.new(celeb_comment_params)
-        if @message.save
-          ActionCable.server.broadcast 'message_channel', content: @message
-        else
-          message_render_set
-        end
+      if @message.save
+        ActionCable.server.broadcast 'message_channel', content: @message
+      else
+        message_render_set
+      end
     end
   end
 
