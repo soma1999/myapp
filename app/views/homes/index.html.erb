@@ -62,33 +62,51 @@
 </div>
 
 
-  <div class= 'famous-index'> 
-    <h2 class= 'title'>
-      有名人一覧
-    </h2>
-    
-    <div class= 'celebs-index'>
-      <ul class='celebs-lists'>
-        <% @celebs.each do |celeb| %>
-          <li class='list'>
-            <div class="celeb-contents">
-              <%= image_tag celeb.image, class: "celeb-image" %>
-                <div class="celeb-content">
-                  <% if user_signed_in? %>
-                    <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post,class: 'celeb-name'  %>
-                  <% else %>
-                    <%= celeb.name %>
-                  <% end %>
-                  <p class="celeb-description">
-                    <%= celeb.description%>
-                  </p>
-                </div>
+<div class= 'famous-index'> 
+  <h2 class= 'title'>
+    有名人一覧
+  </h2>
+  <div class= 'celebs-index'>
+    <ul class='celebs-lists'>
+      <% @celebs.each do |celeb| %>
+        <li class='list'>
+          <div class="celeb-contents">
+            <%= image_tag celeb.image, class: "celeb-image" %>
+            <div class="celeb-content">
+              <% if user_signed_in? %>
+                <%=link_to celeb.name,celeb_rooms_path(celeb),method: :post,class: 'celeb-name'  %>
+              <% else %>
+                <%= celeb.name %>
+              <% end %>
+              <p class="celeb-description">
+                <%= celeb.description%>
+              </p>
             </div>
-          </li>
-        <% end %>  
-      </ul>
-      <%= paginate @celebs %>
-    </div>
+          </div>
+        </li>
+      <% end %>  
+    </ul>
+    <%= paginate @celebs %>
   </div>
+</div>
+
+<div class="celeb-ranking">
+  <h2><span>ランキング</span></h2>
+  <ul class='ranking-lists'>
+    <% @celeb_turn.each_with_index do |celeb, i| %>
+      <li class="ranking-list">
+        <div class="num">
+          <%= i+1 %>
+        </div>
+        <div class="name">
+          <%= celeb[0] %>
+        </div>
+        <div class="price">
+          ￥<%= celeb[1]%>
+        </div>
+      </li>
+    <% end %> 
+  </ul>
+</div>
 
 <%= render "shared/footer" %>
