@@ -1,6 +1,21 @@
 class HomesController < ApplicationController
   def index
     @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(24)
+    @celebs_all = Celeb.all
+    @celeb_order = {}
+    @celebs_all.each do |celeb|
+      @total_revenue = 0
+      @rooms = celeb.rooms
+      @rooms.each do |room|
+        @orders = room.orders
+        @orders.each do |order|
+          @total_revenue += order.price.content.to_i
+        end
+      end
+      @celeb_order.store(celeb.name, @total_revenue)
+    end
+
+    @celeb_turn = @celeb_order.sort_by{ | k, v | v }.reverse.slice(0, 9)
   end
 
   def new_guest_user
