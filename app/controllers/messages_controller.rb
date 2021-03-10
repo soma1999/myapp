@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     if current_user
       @message = Message.new(user_comment_params)
       if @message.save
-        ActionCable.server.broadcast 'message_channel', content: @message
+        ActionCable.server.broadcast 'message_channel', content: @message 
       else
         message_render_set
         @prices = Price.all
