@@ -18,3 +18,20 @@
   text-align: center;
   color: red;
 }
+
+.sns-login{
+  text-align: center;
+}
+.sns-login h2{
+  font-size: 15px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+.facebook-img{
+  width: 200px;
+  height: 40px;
+}
+
+.google-img{
+  width: 180px;
+}
