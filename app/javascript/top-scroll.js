@@ -9,13 +9,14 @@
 //   });
 // });
 
-// $(document).on("turbolinks:load", function() {
-//   if ($(".pagination a[rel=next]").length){
-//     $('.famous-index').infiniteScroll({
-//     path: ".pagination a[rel=next]"
-//     append: ".celebs-lists"
-//     history: false
-//     prefill: true
-//     status: '.page-load-status'
-//   })}
-// })
+require("infinite-scroll");
+$(document).on("turbolinks:load", function() {
+  if ($(".pagination a[rel=next]").length){
+    $('.celeb-lists').InfiniteScroll({
+    path: ".pagination a[rel=next]",
+    append: ".celebs-lists",
+    history: false,
+    prefill: true,
+    status: '.page-load-status'
+  })
+}});

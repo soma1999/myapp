@@ -2103,6 +2103,11 @@ core-js@^3.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.3.tgz#c21906e1f14f3689f93abcc6e26883550dd92dd0"
   integrity sha512-KPYXeVZYemC2TkNEkX/01I+7yd+nX3KddKwZ1Ww7SKWdI2wQprSgLmrTddT8nw92AjEklTsPBoSdQBhbI1bQ6Q==
 
+core-js@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.9.1.tgz#cec8de593db8eb2a85ffb0dbdeb312cb6e5460ae"
+  integrity sha512-gSjRvzkxQc1zjM/5paAmL4idJBFzuJoo+jDjF1tStYFMV2ERfD02HhahhCGXUyHxQRG4yFKVSdO6g62eoRMcDg==
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2785,6 +2790,11 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
+ev-emitter@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-2.1.0.tgz#0feaf873003db49c92ceb7d448111a952fb25ce2"
+  integrity sha512-73qJdHUbyfA6ykAvWf4bBV7fQNYVOPd9nA3qfiQkgKVgIBKro/MAfJnZgyayWUapHU0Y5Qk9unofK3WirjkrVQ==
+
 eventemitter3@^4.0.0:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
@@ -3038,6 +3048,11 @@ findup-sync@^3.0.0:
     is-glob "^4.0.0"
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
+
+fizzy-ui-utils@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fizzy-ui-utils/-/fizzy-ui-utils-3.0.0.tgz#cc5e876eea263d3d92828a3144745dbd7b972fc8"
+  integrity sha512-uJj38QFQiJ/KCio5tiZhwAjIbTXSIgzBCKdKVbaYfLS053F6z23Nb0o1ZoO9gnxOQWN7BCc35jsvrCtAq3gY9g==
 
 flatted@^2.0.1:
   version "2.0.2"
@@ -3637,6 +3652,14 @@ infer-owner@^1.0.3, infer-owner@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
   integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
+
+infinite-scroll@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/infinite-scroll/-/infinite-scroll-4.0.1.tgz#093dafe2d86bf4cd27da3b920a46f898f22c939f"
+  integrity sha512-14Utu6d8g6mO5PmwUxfAUK5uaKdClIkrJqLmBYXj/AMBRy5ApsCWkkY84HvsSq4MM1A062gtf58S9OiD5WBfRA==
+  dependencies:
+    ev-emitter "^2.1.0"
+    fizzy-ui-utils "^3.0.0"
 
 inflight@^1.0.4:
   version "1.0.6"

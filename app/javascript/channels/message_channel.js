@@ -12,21 +12,73 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
+
     const today = new Date();
     const month = ("0"+(today.getMonth() + 1)).slice(-2);
-    const day = ("0"+today.getDay()).slice(-2);
+    const day = ("0"+today.getDate()).slice(-2);
     const hours = today.getHours();
     const minutes = ("0"+today.getMinutes()).slice(-2);
-    const html = `<div class="mycomment" ><a href= "/rooms/${data.content.room_id}/messages/${data.content.id}" class="delete-btn hidden" rel="nofollow">削除する</a>${month}/${day} ${hours}:${minutes} <p>${data.content.content}</p></div>`;
+
+    const newMessage = document.getElementById('content')
+    const sentence=$("#current_user_id").val();
     const messages = document.getElementById('messages');
-    const newMessage = document.getElementById('message_content')
     const messageButton = document.getElementById('message-button')
-    messages.insertAdjacentHTML('beforeend', html);
-    newMessage.value='';
-    messageButton.removeAttribute('disabled');
 
-    const obj = document.getElementById("messages");
-    obj.scrollTop = obj.scrollHeight;
+    if (data.content.user_id == sentence || data.content.celeb_id == sentence){
+      const mycomment =   
+      `<div class="mycomment" >
+        <a href= "/rooms/${data.content.room_id}/messages/${data.content.id}" class="delete-btn hidden" rel="nofollow">
+        削除する
+        </a>
+        ${month}/${day} ${hours}:${minutes} 
+        <p>${data.content.content}</p>
+      </div>`;
+      messages.insertAdjacentHTML('beforeend', mycomment);
+      newMessage.value='';
+      messageButton.removeAttribute('disabled');
+      const obj = document.getElementById("messages");
+      obj.scrollTop = obj.scrollHeight;
+    }
+    
+    else{
+      if(data.content.celeb_id == null){
+      const fukidasi =
+      `<div class='fukidasi'>
+        <div class="faceicon">
+          <img src= ${data.celeb_image} class= 'img'>
+        </div>
+        <div class="chatting">
+          <div class='says'>
+            <p>${data.content.content}</p>
+          </div>
+          <div class='created_at'>
+            ${month}/${day} ${hours}:${minutes} 
+          </div>
+        </div>
+      </div>`;
+      messages.insertAdjacentHTML('beforeend', fukidasi);
+      const obj = document.getElementById("messages");
+      obj.scrollTop = obj.scrollHeight;}
 
+      else{
+        const fukidasi =
+      `<div class='fukidasi'>
+        <div class="faceicon">
+          <img src= ${data.user_image} class= 'img'>
+        </div>
+        <div class="chatting">
+          <div class='says'>
+            <p>${data.content.content}</p>
+          </div>
+          <div class='created_at'>
+            ${month}/${day} ${hours}:${minutes} 
+          </div>
+        </div>
+      </div>`;
+      messages.insertAdjacentHTML('beforeend', fukidasi);
+      const obj = document.getElementById("messages");
+      obj.scrollTop = obj.scrollHeight;
+    }}
   }
 });
+

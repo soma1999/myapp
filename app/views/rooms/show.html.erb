@@ -156,8 +156,15 @@
     <% end %>
     <%= form_with model: @message, url:room_messages_path(@room), local: true do |f| %>
       <div class='send-form-blue'>
-        <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content" %>
+        <%= f.text_area :content,placeholder:"入力してね", value: @message.content, class: "send-form-content", id:"content"%>
         <%= f.submit 'SEND', class: "submit ", id: 'message-button'%>
+        <% if current_user %>
+          <input id="current_user_id" type="hidden" value= "<%=current_user.id%>">
+          <input id="partner_id" type="hidden" value= "<%=@room.celeb.id%>">
+        <% else %>
+          <input id="current_user_id" type="hidden" value= "<%=@current_celeb.id%>">
+          <input id="partner_id" type="hidden" value= "<%=@room.user.id%>">
+        <% end %>
       </div>
     <% end %>
   </div>
