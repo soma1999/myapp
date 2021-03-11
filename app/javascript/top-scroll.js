@@ -7,6 +7,5 @@ $(document).on("turbolinks:load", function() {
     history: false,
     prefill: true,
     status: '.page-load-status'
-    
-  })
+    })
 }});
