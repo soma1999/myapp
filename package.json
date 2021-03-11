@@ -6,6 +6,10 @@
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "4.3.0",
+    "core-js": "^3.9.1",
+    "ev-emitter": "^2.1.0",
+    "fizzy-ui-utils": "^3.0.0",
+    "infinite-scroll": "^4.0.1",
     "jquery": "^3.6.0",
     "turbolinks": "^5.2.0"
   },
