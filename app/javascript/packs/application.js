@@ -12,11 +12,8 @@ require("message-destroy");
 require("../card");
 require("money-index");
 require('jquery');
-// require("ev-emitter/ev-emitter");
-// require('../infinite-scroll.pkgd.min');
-
 require("top-scroll");
-require("message_channel")
+require("message_channel");
 
 
 

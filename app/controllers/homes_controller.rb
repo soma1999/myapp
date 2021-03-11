@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(24)
+    @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(18)
     @celebs_all = Celeb.all
     @celeb_order = {}
     @celebs_all.each do |celeb|
