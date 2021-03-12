@@ -20,11 +20,14 @@ consumer.subscriptions.create("MessageChannel",{
     const minutes = ("0"+today.getMinutes()).slice(-2);
 
     const newMessage = document.getElementById('content')
-    const sentence=$("#current_user_id").val();
+    const current_user=$("#current_user_id").val();
+    
+    const room_id=$('#room_id').val();
+
     const messages = document.getElementById('messages');
     const messageButton = document.getElementById('message-button')
-
-    if (data.content.user_id == sentence || data.content.celeb_id == sentence){
+    if( room_id == data.room_id){
+    if ( data.content.user_id == current_user || data.content.celeb_id == current_user ){
       const mycomment =   
       `<div class="mycomment" >
         <a href= "/rooms/${data.content.room_id}/messages/${data.content.id}" class="delete-btn hidden" rel="nofollow">
@@ -78,7 +81,7 @@ consumer.subscriptions.create("MessageChannel",{
       messages.insertAdjacentHTML('beforeend', fukidasi);
       const obj = document.getElementById("messages");
       obj.scrollTop = obj.scrollHeight;
-    }}
+    }}}
   }
 });
 

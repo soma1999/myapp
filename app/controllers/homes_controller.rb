@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(18)
+    @celebs = Celeb.all.order("created_at DESC").page(params[:page]).per(6)
     @celebs_all = Celeb.all
     @celeb_order = {}
     @celebs_all.each do |celeb|
@@ -28,7 +28,9 @@ class HomesController < ApplicationController
       user.first_name_katakana = "ヤマダ"
       user.last_name_katakana = "タロウ"
       user.birthday = "1999-12-13"
-      user.image.attach(io: File.open('public/images/default-image.png'), filename: 'default-image.png')
+      require 'open-uri'
+      image = open('https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png')
+      user.image.attach(io: File.open(image))
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
@@ -39,7 +41,9 @@ class HomesController < ApplicationController
       celeb.password = '1a' + Faker::Internet.password(min_length: 6)
       celeb.name = "ゲスト"
       celeb.description = "これは架空の人物です。生年月日・年齢・国籍・経歴：いずれも不明。素性については多くの仮説が立てられているが、正確なところはわかっていない。"
-      celeb.image.attach(io: File.open('public/images/default-image.png'), filename: 'default-image.png')
+      require 'open-uri'
+      image = open('https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png')
+      celeb.image.attach(io: File.open(image))
     end
     session[:user_id]=celeb.id
     redirect_to root_path, notice: 'ゲスト有名人としてログインしました'
