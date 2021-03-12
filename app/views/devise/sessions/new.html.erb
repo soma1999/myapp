@@ -8,6 +8,11 @@
       （一般ユーザー専用）
     </h1>
   </div>
+  <div class="sns-login">
+    <h2>SNSアカウントでログイン</h2>
+    <%= link_to image_tag("facebook-login.png", class: "facebook-img"), user_facebook_omniauth_authorize_path, method: :post%>
+    <%= link_to image_tag("google-login.png", class: "google-img"), user_google_oauth2_omniauth_authorize_path, method: :post%>
+  </div>
   <div class='login-flash-message'>
     <%= flash[:notice] %>
     <%= flash[:alert] %>

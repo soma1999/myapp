@@ -11,9 +11,10 @@ class RoomsController < ApplicationController
     @results = @p.result
     @room = Room.find(params[:id])
     @celeb = Celeb.find(@room.celeb_id)
-    @celebs = Celeb.all
+    @celebs_max = Celeb.all
     @message = Message.new
     @messages = Message.where(room_id: @room).order("created_at ASC")
+    price_create
     @prices = Price.all.order(:id)
     @like = Like.find_by(room_id: @room.id)
 
@@ -30,4 +31,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  private 
+
+  def price_create
+    @price_300 = Price.find_or_create_by(content: "300")
+    @price_500 = Price.find_or_create_by(content: "500")
+    @price_1000 = Price.find_or_create_by(content: "1000")
+    @price_2000 = Price.find_or_create_by(content: "2000")
+  end
 end

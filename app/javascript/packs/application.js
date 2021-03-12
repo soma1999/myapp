@@ -12,9 +12,8 @@ require("message-destroy");
 require("../card");
 require("money-index");
 require('jquery');
-require('../infinite-scroll.pkgd.min');
 require("top-scroll");
-
+require("channels/message_channel");
 
 
 

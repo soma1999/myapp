@@ -16,12 +16,7 @@ class InquiryController < ApplicationController
   end
 
   def thanks
-  
     InquiryMailer.received_email(@inquiry).deliver
-<<<<<<< Updated upstream
-    render :thanks
-=======
->>>>>>> Stashed changes
   end
 
   private 

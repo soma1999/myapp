@@ -21,6 +21,7 @@
 - has_many :rooms
 - has_many :messages
 - has_many :likes
+- has_many :sns_credentials
 
 ## celebs テーブル
 
@@ -118,3 +119,15 @@
 
 - belongs_to :user
 - belongs_to :room
+
+## sns_credentials
+
+| Column   | Type       | Options                        |
+| ------   | ---------- | ------------------------------ |
+| provider | string     | null: false                    |
+| uid      | string     | null: false                    |
+| user     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
