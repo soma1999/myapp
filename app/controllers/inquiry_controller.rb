@@ -8,7 +8,6 @@ class InquiryController < ApplicationController
   end
 
   def confirm
-
     if @inquiry.valid?
       render :confirm
     else
@@ -18,7 +17,6 @@ class InquiryController < ApplicationController
 
   def thanks
     InquiryMailer.received_email(@inquiry).deliver
-    # render :thanks
   end
 
   private 
