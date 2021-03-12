@@ -17,9 +17,8 @@ class InquiryController < ApplicationController
   end
 
   def thanks
-  
     InquiryMailer.received_email(@inquiry).deliver
-    render :thanks
+    # render :thanks
   end
 
   private 
