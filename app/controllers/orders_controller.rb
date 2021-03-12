@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     @user = User.find(current_user.id)
     @user.update(order: true)
     celeb_image = Rails.application.routes.url_helpers.rails_blob_path(@room.celeb.image, only_path: true)
-    ActionCable.server.broadcast 'message_channel', content: @message, celeb_image: celeb_image
+    ActionCable.server.broadcast 'message_channel', content: @message, celeb_image: celeb_image, room_id: @room.id
 
   end
 
