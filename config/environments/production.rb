@@ -40,9 +40,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = 'wss://myapp20210213.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://myapp20210213.herokuapp.com', 'http://myapp20210213.herokuapp.com' ]
+  # config.action_cable.url = 'wss://example.com/cable'
+  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -110,4 +109,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "wss://myapp20210213.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://myapp20210213.herokuapp.com', 'http://myapp20210213.herokuapp.com']
 end
