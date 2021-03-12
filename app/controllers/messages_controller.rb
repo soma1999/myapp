@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       @message = Message.new(user_comment_params)
       if @message.save
         celeb_image = Rails.application.routes.url_helpers.rails_blob_path(@room.celeb.image, only_path: true)
-        ActionCable.server.broadcast 'message_channel', content: @message, celeb_image: celeb_image
+        ActionCable.server.broadcast 'message_channel', content: @message, celeb_image: celeb_image, room_id: @room.id
       else
         message_render_set
         @prices = Price.all
@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
       @message = Message.new(celeb_comment_params)
       if @message.save
         user_image = Rails.application.routes.url_helpers.rails_blob_path(@room.user.image, only_path: true)
-        ActionCable.server.broadcast 'message_channel', content: @message, user_image: user_image
+        ActionCable.server.broadcast 'message_channel', content: @message, user_image: user_image, room_id: @room.id
       else
         message_render_set
       end
