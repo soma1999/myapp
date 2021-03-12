@@ -13,7 +13,7 @@ require("../card");
 require("money-index");
 require('jquery');
 require("top-scroll");
-require("message_channel");
+require("channels/message_channel");
 
 
 
