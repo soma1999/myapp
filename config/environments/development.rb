@@ -70,5 +70,5 @@ Rails.application.configure do
   password:             ENV['SEND_MAIL_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto:  true
-  }
+  } 
 end
