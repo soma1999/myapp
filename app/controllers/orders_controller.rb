@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :ensure_current_user
 
   def create
     redirect_to new_card_path and return unless current_user.card.present?
@@ -23,4 +24,12 @@ class OrdersController < ApplicationController
 
   end
 
+  private
+
+  def ensure_current_user
+    @room = Room.find(params[:room_id])
+    unless user_signed_in? || current_user.id == @room.user.id
+      redirect_to root_path
+    end
+  end
 end
