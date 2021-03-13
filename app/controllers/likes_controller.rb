@@ -1,17 +1,16 @@
 class LikesController < ApplicationController
-  before_action :room_set, only: [:create, :destroy]
+  before_action :room_set
+  before_action :ensure_current_user, except: [:room_set]
 
   def create
-    room_set
     @like = Like.create(room_id: @room.id, user_id: current_user.id)
-    redirect
+    redirect_to room_path(@room)
   end
 
   def destroy
-    room_set
     @like = Like.find(params[:id])
     @like.destroy
-    redirect
+    redirect_to room_path(@room)
   end
 
   private
@@ -20,7 +19,9 @@ class LikesController < ApplicationController
     @room = Room.find(params[:room_id])
   end
 
-  def redirect
-    redirect_to room_path(@room)
+  def ensure_current_user
+    if current_user.id != @room.user.id
+      redirect_to root_path
+    end
   end
 end
