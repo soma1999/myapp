@@ -10,5 +10,9 @@ FactoryBot.define do
     first_name_katakana {"ヤマダ"}
     last_name_katakana {"タロウ"}
     birthday {"2020/01/01"} 
+
+    after(:build) do |user|
+      user.image.attach(io: File.open('app/assets/images/default-image.png'), filename: 'default-image.png')
+    end
   end
 end
