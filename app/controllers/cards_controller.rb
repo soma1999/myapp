@@ -1,4 +1,7 @@
 class CardsController < ApplicationController
+  before_action :card_register 
+
+
   def new
   end
 
@@ -19,6 +22,12 @@ class CardsController < ApplicationController
       redirect_to user_path(current_user.id)
     else
       redirect_to :new
+    end
+  end
+
+  def card_register
+    if current_user == nil ||  current_user.card
+      redirect_to root_path
     end
   end
 end
