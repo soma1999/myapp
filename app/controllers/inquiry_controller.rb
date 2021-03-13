@@ -1,5 +1,8 @@
 class InquiryController < ApplicationController
   before_action :inquiry_new, only: [:confirm, :thanks]
+  before_action :forbid_inquiry, only: [:index, :confirm, :thanks]
+  
+
   def index
     @inquiry = Inquiry.new
     if user_signed_in?
@@ -26,5 +29,11 @@ class InquiryController < ApplicationController
 
   def inquiry_new
     @inquiry = Inquiry.new(confirm_parameter)
+  end
+
+  def forbid_inquiry
+    unless @current_celeb || current_user
+      redirect_to root_path
+    end
   end
 end
