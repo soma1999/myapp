@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-
   before_action :search_celeb, only: [:create]
+  before_action :ensure_current_user, only: [:create, :destroy]
 
 
   def create
@@ -52,5 +52,19 @@ class MessagesController < ApplicationController
     @results = @p.result
   end
 
+  def ensure_current_user
+    @room = Room.find(params[:room_id])
+    if current_user
+      unless current_user.id == @room.user.id
+        redirect_to root_path
+      end
+    elsif @current_celeb
+      unless @current_celeb.id == @room.celeb.id
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
 end
 

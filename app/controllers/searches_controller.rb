@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
-
   before_action :search_celeb, only: [:search]
+
 
   def search
     @room = Room.find(params[:room_id])
@@ -19,4 +19,6 @@ class SearchesController < ApplicationController
   def search_celeb
     @p = Celeb.ransack(params[:q])
   end
+
+  
 end

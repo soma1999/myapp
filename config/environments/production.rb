@@ -112,4 +112,16 @@ Rails.application.configure do
   ActionCable.server.config.disable_request_forgery_protection = true
   config.action_cable.url = "wss://myapp20210213.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://myapp20210213.herokuapp.com', 'http://myapp20210213.herokuapp.com']
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                  587,
+  domain:               'gmail.com',
+  user_name:            ENV['SEND_MAIL'],
+  password:             ENV['SEND_MAIL_PASSWORD'],
+  authentication:       'plain',
+  enable_starttls_auto:  true
+  } 
 end

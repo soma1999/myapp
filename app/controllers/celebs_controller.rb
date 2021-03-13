@@ -1,5 +1,8 @@
 class CelebsController < ApplicationController
   before_action :celeb_new, only: [:new, :new_second]
+  before_action :ensure_admin, only: [:new]
+  before_action :ensure_current_celeb, only: [:show, :destroy]
+  
 
   def new
   end
@@ -55,5 +58,17 @@ class CelebsController < ApplicationController
 
   def celeb_new
     @celeb = Celeb.new
+  end
+
+  def ensure_admin
+    unless user_signed_in? && current_user.admin
+      redirect_to root_path
+    end
+  end
+
+  def ensure_current_celeb
+    if @current_celeb.id != params[:id].to_i 
+      redirect_to root_path
+    end
   end
 end

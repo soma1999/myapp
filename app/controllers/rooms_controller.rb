@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, only: :find_or_create_by
+  before_action :ensure_current_user, only: :show
 
 
   def find_or_create_by
@@ -39,4 +41,21 @@ class RoomsController < ApplicationController
     @price_1000 = Price.find_or_create_by(content: "1000")
     @price_2000 = Price.find_or_create_by(content: "2000")
   end
+
+  def ensure_current_user
+    @room = Room.find(params[:id])
+    if current_user
+      unless current_user.id == @room.user.id
+        redirect_to root_path
+      end
+    elsif @current_celeb
+      unless @current_celeb.id == @room.celeb.id
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  
 end

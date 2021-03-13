@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth
+  before_action :basic_auth,:current_celeb
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :current_celeb
+  
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
     @current_celeb = Celeb.find_by(id: session[:user_id])
     end
   end
+
 end
