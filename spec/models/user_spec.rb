@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it  'nickname,email,password,password_confirmation,first_name,last_name,first_name_katakana,last_name_katakana,birthdayがあれば登録できる ' do
+      it  '必須のものが全てあれば登録できる' do
         expect(@user).to be_valid
       end
 
@@ -19,6 +19,13 @@ RSpec.describe User, type: :model do
     end
 
     context '新規登録できないとき' do
+
+      it 'imageが空では保存できないこと' do
+        @user.image = nil
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Image can't be blank")
+      end
+
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
         @user.valid?
@@ -133,7 +140,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("First name katakana is invalid")
       end
       
-      it 'Last_name_katakanaは全角カタカナ以外では登録できないこと' do
+      it 'last_name_katakanaは全角カタカナ以外では登録できないこと' do
         @user.first_name_katakana = '山田'
         @user.valid?
         expect(@user.errors.full_messages).to include("First name katakana is invalid")
