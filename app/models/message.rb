@@ -1,8 +1,6 @@
 class Message < ApplicationRecord
 
-  with_options presence: true,length: {maximum: 100} do
-    validates :content
-  end
+  validates :content, presence: true,length: {maximum: 100} 
 
   belongs_to :celeb, optional: true
   belongs_to :room

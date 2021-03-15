@@ -4,7 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable, :omniauthable ,omniauth_providers: [:facebook, :google_oauth2]
 
-  validates :nickname, :birthday, presence: true  
+  
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+    validates :image
+  end
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, allow_nil: true
 
