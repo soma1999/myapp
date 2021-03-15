@@ -29,18 +29,18 @@ consumer.subscriptions.create("MessageChannel",{
     if( room_id == data.room_id){
     if ( data.content.user_id == current_user || data.content.celeb_id == current_user ){
       const mycomment =   
-      `<div class="mycomment" >
+      `<div class="mycomment">
         <a href= "/rooms/${data.content.room_id}/messages/${data.content.id}" class="delete-btn hidden" rel="nofollow">
         削除する
         </a>
         ${month}/${day} ${hours}:${minutes} 
-        <p>${data.content.content}</p>
+        <p class='my'>${data.content.content}</p>
       </div>`;
       messages.insertAdjacentHTML('beforeend', mycomment);
       newMessage.value='';
       messageButton.removeAttribute('disabled');
       const obj = document.getElementById("messages");
-      obj.scrollTop = obj.scrollHeight;
+      obj.scrollTop = obj.scrollHeight;      
     }
     
     else{
