@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it  '必須のものが全てあれば登録できる' do
+      it  '必須のものが全て記入されていたら登録できる' do
         expect(@user).to be_valid
       end
 
@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
 
     context '新規登録できないとき' do
 
-      it 'imageが空では保存できないこと' do
+      it 'imageが空では登録できない' do
         @user.image = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Image can't be blank")
@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
 
-      it '全角英数混合では登録できないこと' do
+      it 'passwordが全角英数混合では登録できないこと' do
         @user.password = 'ABC１２３４５６'
         @user.password_confirmation = 'ABC１２３４５６'
         @user.valid?
