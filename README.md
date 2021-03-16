@@ -167,12 +167,24 @@
 ![サンプル画像](user_login.gif)
 ![サンプル画像](user_logout.gif)
 
+## 一般ユーザーのSNSアカウントを用いてのログイン機能
+Facebookアカウントでまだログインしたことがなかった場合<br>
+![サンプル画像](facebook_login.gif)
+Facebookアカウントですでにログインしたことがあった場合<br>
+![サンプル画像](can_facebook_login.gif)
+Googleアカウントでまだログインしたことがなかった場合<br>
+![サンプル画像](google_login.gif)
+Googleアカウントですでにログインしたことがあった場合<br>
+![サンプル画像](can_google_login.gif)
 
 ## 有名人のログイン/ログアウト機能
+有名人のログイン機能<br>
 ![サンプル画像](celeb_login.gif)
+有名人のログアウト機能<br>
 ![サンプル画像](celeb_logout.gif)
 
 ## 管理者のログイン/ログアウト機能
+
 
 ## トップページの有名人一覧のページネーション機能
 ![サンプル画像](celeb_scroll.gif)
@@ -198,16 +210,11 @@
 ## 一般ユーザーの新着メッセージ
 ![サンプル画像](new_message_from_celeb.gif)
 
-## 一般ユーザーのトーク履歴
-
-
 ## お気に入り登録機能
 ![サンプル画像](good_celeb.gif)
 
 ## 有名人の新着メッセージ
 ![サンプル画像](new_message_from_user.gif)
-
-## 有名人のトーク履歴
 
 ## ブロックユーザー機能
 ![サンプル画像](block_user.gif)
@@ -223,6 +230,8 @@
 
 ## お問い合わせ機能
 ![サンプル画像](inquiry.gif)
+管理者のメール受信<br>
+[![Image from Gyazo](https://i.gyazo.com/439a5476bd51091da51f023c3ef70675.png)](https://gyazo.com/439a5476bd51091da51f023c3ef70675)
 
 
 # 実装予定の機能
