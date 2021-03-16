@@ -48,7 +48,7 @@ consumer.subscriptions.create("MessageChannel",{
       const fukidasi =
       `<div class='fukidasi'>
         <div class="faceicon">
-          <img src= ${data.celeb_image} class= 'img'>
+          <img src= ${data.user_image} class= 'img'>
         </div>
         <div class="chatting">
           <div class='says'>
@@ -67,7 +67,7 @@ consumer.subscriptions.create("MessageChannel",{
         const fukidasi =
       `<div class='fukidasi'>
         <div class="faceicon">
-          <img src= ${data.user_image} class= 'img'>
+          <img src= ${data.celeb_image} class= 'img'>
         </div>
         <div class="chatting">
           <div class='says'>
