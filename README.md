@@ -161,45 +161,68 @@
 
 # 実装した機能についてのGIFと説明
 ## 一般ユーザーの新規登録機能
+![サンプル画像](user_signup.gif)
 
 ## 一般ユーザーのログイン/ログアウト機能
+![サンプル画像](user_login.gif)
+![サンプル画像](user_logout.gif)
+
 
 ## 有名人のログイン/ログアウト機能
+![サンプル画像](celeb_login.gif)
+![サンプル画像](celeb_logout.gif)
 
 ## 管理者のログイン/ログアウト機能
 
 ## トップページの有名人一覧のページネーション機能
+![サンプル画像](celeb_scroll.gif)
 
 ## 一般ユーザーのゲストログイン機能
+![サンプル画像](user_gest_login.gif)
 
 ## 有名人のゲストログイン機能
+![サンプル画像](celeb_gest_login.gif)
 
 ## カード情報の登録
+![サンプル画像](card_regi.gif)
 
 ## メッセージの送信機能
+![サンプル画像](chatting.gif)
+
+## メッセージの削除機能
+![サンプル画像](message_des.gif)
 
 ## 有名人の検索機能
+![サンプル画像](search.gif)
 
 ## 一般ユーザーの新着メッセージ
+![サンプル画像](new_message_from_celeb.gif)
 
 ## 一般ユーザーのトーク履歴
 
+
 ## お気に入り登録機能
+![サンプル画像](good_celeb.gif)
 
 ## 有名人の新着メッセージ
+![サンプル画像](new_message_from_user.gif)
 
 ## 有名人のトーク履歴
 
 ## ブロックユーザー機能
+![サンプル画像](block_user.gif)
 
 ## メッセージの既読機能
+![サンプル画像](seen_message.gif)
 
 ## 投げ銭機能
+![サンプル画像](get_money.gif)
 
 ## ランキング機能
+![サンプル画像](ranking.gif)
 
 ## お問い合わせ機能
-
+![サンプル画像](inquiry.gif)
 
 
 # 実装予定の機能
