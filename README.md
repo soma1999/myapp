@@ -168,19 +168,25 @@
 ![サンプル画像](user_logout.gif)
 
 ## 一般ユーザーのSNSアカウントを用いてのログイン機能
-Facebookアカウントでまだログインしたことがなかった場合<br>
+Facebookアカウントでまだログインしたことがなかった場合
+<br>
 ![サンプル画像](facebook_login.gif)
-Facebookアカウントですでにログインしたことがあった場合<br>
+Facebookアカウントですでにログインしたことがあった場合
+<br>
 ![サンプル画像](can_facebook_login.gif)
-Googleアカウントでまだログインしたことがなかった場合<br>
+Googleアカウントでまだログインしたことがなかった場合
+<br>
 ![サンプル画像](google_login.gif)
-Googleアカウントですでにログインしたことがあった場合<br>
+Googleアカウントですでにログインしたことがあった場合
+<br>
 ![サンプル画像](can_google_login.gif)
 
 ## 有名人のログイン/ログアウト機能
-有名人のログイン機能<br>
+有名人のログイン機能
+<br>
 ![サンプル画像](celeb_login.gif)
-有名人のログアウト機能<br>
+有名人のログアウト機能
+<br>
 ![サンプル画像](celeb_logout.gif)
 
 ## 管理者のログイン/ログアウト機能
@@ -230,7 +236,8 @@ Googleアカウントですでにログインしたことがあった場合<br>
 
 ## お問い合わせ機能
 ![サンプル画像](inquiry.gif)
-管理者のメール受信<br>
+管理者のメール受信
+<br>
 [![Image from Gyazo](https://i.gyazo.com/439a5476bd51091da51f023c3ef70675.png)](https://gyazo.com/439a5476bd51091da51f023c3ef70675)
 
 
